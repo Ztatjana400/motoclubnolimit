@@ -18,7 +18,6 @@
             --flame: #FF4500;
             --deep-blood: #4a0000;
 
-        /* NEW VARIABLES */
             --transition: all 0.3s ease;
             --gradient-amber: linear-gradient(180deg, #ff9500, #ff5500);
             --white: #ffffff;
@@ -44,9 +43,9 @@
         }
 
         html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-}
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
@@ -132,7 +131,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;      /* Use viewport width instead of % */
+    width: 100vw;      
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
@@ -495,8 +494,8 @@
             overflow: hidden;
             border: 1px solid var(--blood-red);
             box-shadow: 
-                0 20px 60px rgba(0,0,0,0.5),    /* depth shadow */
-                0 0 40px 5px #350101;            /* red glow */
+                0 20px 60px rgba(0,0,0,0.5),    
+                0 0 40px 5px #350101;            
             border-radius: 20px;
         }
 
@@ -575,7 +574,7 @@
             color: var(--chrome);
         }
 
-        /* Rides Section with INFINITE MARQUEE */
+        /* Rides Section - INFINITE MARQUEE */
         .rides {
             background: var(--dark-metal);
             overflow: hidden;
@@ -900,7 +899,6 @@
         }
 
         /* 3D Carousel Container */
-
          /* Gallery Section */
         .gallery {
             max-width: 1400px;
@@ -943,56 +941,54 @@
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-/*MAIN VIEW PICTURE IN GALLERY*/
+        /*MAIN VIEW PICTURE IN GALLERY*/
         .carousel-item {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    background: var(--card-bg);
-    border: 0.5px solid rgba(139,0,0,0.2);
-    transform-origin: center center;  
-}
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: var(--card-bg);
+            border: 0.5px solid rgba(139,0,0,0.2);
+            transform-origin: center center;  
+        }
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    pointer-events: none;
-    transform-origin: center center;  
-}
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            transform-origin: center center;  
+        }
 
-.carousel-item:hover img {
-    transform: scale(1.1);
-}
+        .carousel-item:hover img {
+            transform: scale(1.1);
+        }
 
-.carousel-item.active {
-    transform: translateX(0) translateZ(220px) scale(0.9);
-    z-index: 10;
-    border-color: var(--blood-red);
-    box-shadow: 0 10px 10px rgba(139,0,0,0.2);
-    transform-origin: center center;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
+        .carousel-item.active {
+            transform: translateX(0) translateZ(220px) scale(0.9);
+            z-index: 10;
+            border-color: var(--blood-red);
+            box-shadow: 0 10px 10px rgba(139,0,0,0.2);
+            transform-origin: center center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
 
-/* HOVER: grows bigger */
-.carousel-item.active:hover {
-    transform: translateX(0) translateZ(260px) scale(1.0);
-    box-shadow: 0 30px 30px rgba(139,0,0,0.2);
-    border-color: var(--flame);
-    cursor: pointer;
-}
+        .carousel-item.active:hover {
+            transform: translateX(0) translateZ(260px) scale(1.0);
+            box-shadow: 0 30px 30px rgba(139,0,0,0.2);
+            border-color: var(--flame);
+            cursor: pointer;
+        }
 
-/* CLICKED: back to normal size */
-.carousel-item.active.clicked {
-    transform: translateX(0) translateZ(220px) scale(0.9) !important;
-    box-shadow: 0 30px 60px rgba(139,0,0,0.4);
-}
+        .carousel-item.active.clicked {
+            transform: translateX(0) translateZ(220px) scale(0.9) !important;
+            box-shadow: 0 30px 60px rgba(139,0,0,0.4);
+        }
 
         /* Side Images */
         .carousel-item.prev {
@@ -1038,30 +1034,29 @@
 
         /* Navigation Buttons */
         .carousel-nav {
-    position: absolute;
-    bottom: -90px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 2rem;
-    z-index: 100;
-}
+            position: absolute;
+            bottom: -90px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2rem;
+            z-index: 100;
+        }
 
-/* Add margin to gallery section to prevent overlap */
-.gallery {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 4rem 2rem 8rem 2rem;  /* Increased bottom padding */
-    min-height: auto;  /* Remove fixed height */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
 
-/* Ensure next section has clear space */
-.contact {
-    margin-top: 2rem;
-}
+        .gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem 8rem 2rem;  
+            min-height: auto;  
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .contact {
+            margin-top: 2rem;
+        }
 
         .nav-btn {
             width: 40px;
@@ -1086,7 +1081,6 @@
             box-shadow: 0 5px 20px rgba(139,0,0,0.4);
         }
 
-        /* Drag Instructions */
         .drag-hint {
             position: absolute;
             bottom: 20px;
@@ -1139,26 +1133,23 @@
             }
         }
 
-        
-
         /* Gallery loading state */
-.carousel-item.loading {
-    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-}
+        .carousel-item.loading {
+            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
 
-@keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
 
-/* Ensure buttons are clickable immediately */
-.gallery-categories button {
-    position: relative;
-    z-index: 10;
-    min-width: 140px;
-}
+        .gallery-categories button {
+            position: relative;
+            z-index: 10;
+            min-width: 140px;
+        }
 
         /* Humanitarian Section */
         .humanitarian {
@@ -1336,7 +1327,7 @@
             background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(139, 0, 0, 0.03) 35px, rgba(139, 0, 0, 0.03) 70px);
             pointer-events: none;
         }
-
+        
         .contact-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -1802,10 +1793,10 @@
         /*-------------------------HONOR BADGE------------------------------------*/
         /* Hover effect */
         .honor-badge {
-            width: 100px;        /* Small size */
-            height: auto;       /* Keep proportions */
-            display: block;     /* Allows centering */
-            margin: 0 auto;     /* Center horizontally */
+            width: 100px;     
+            height: auto;     
+            display: block;    
+            margin: 0 auto;   
             transition: transform 0.3s ease;
         }
 
@@ -1814,10 +1805,10 @@
         }
 
         .vice_president {
-            width: 83px;        /* Small size */
-            height: auto;       /* Keep proportions */
-            display: block;     /* Allows centering */
-            margin: 0 auto;     /* Center horizontally */
+            width: 83px;        
+            height: auto;    
+            display: block;   
+            margin: 0 auto;    
             margin-top: 5%;
             transition: transform 0.3s ease;
         }
@@ -1826,7 +1817,6 @@
             transform: scale(1.8);
         }
 
-        /*-------------------------------------------------------------*/
         /* Loading Animation */
         .loader {
             position: fixed;
@@ -1870,7 +1860,7 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
 
-        /*fix for en/mk in contactform*/
+        /*en/mk in contactform*/
         label[data-lang] {
             display: none;
         }
@@ -1880,217 +1870,217 @@
         }
 
         /* Extra Small Phones (Samsung Galaxy fold, small Androids) */
-@media (max-width: 360px) {
-    body {
-        overflow-x: hidden;
-        width: 100%;
-    }
+    @media (max-width: 360px) {
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
     
-    .hero {
-        min-height: 100vh;
-        padding: 80px 0;
-    }
+        .hero {
+            min-height: 100vh;
+            padding: 80px 0;
+        }
     
-    .hero-content {
-        width: 100%;
-        padding: 1rem;
-    }
+        .hero-content {
+            width: 100%;
+            padding: 1rem;
+        }
     
-    .hero h1 {
-        font-size: 1.8rem;
-        word-break: break-word;
-    }
+        .hero h1 {
+            font-size: 1.8rem;
+            word-break: break-word;
+        }
     
-    .hero-subtitle {
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
-    }
+        .hero-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+        }
     
-    .hero-text {
-        font-size: 0.9rem;
-        padding: 0 0.5rem;
-    }
+        .hero-text {
+            font-size: 0.9rem;
+            padding: 0 0.5rem;
+        }
     
-    .hero-badge {
-        width: 120px;
-        height: 120px;
-    }
+        .hero-badge {
+            width: 120px;
+            height: 120px;
+        }
     
-    .cta-button {
-        padding: 1rem 2rem;
-        font-size: 0.9rem;
-    }
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+        }
     
-    section {
-        padding: 3rem 3%;
-    }
+        section {
+            padding: 3rem 3%;
+        }
     
-    .about-grid,
-    .contact-container,
-    .humanitarian-grid {
-        width: 100%;
-        margin: 0;
-    }
+        .about-grid,
+        .contact-container,
+        .humanitarian-grid {
+            width: 100%;
+            margin: 0;
+        }
     
-    .about-content,
-    .contact-info,
-    .contact-form {
-        width: 100%;
-        padding: 0;
-    }
+        .about-content,
+        .contact-info,
+        .contact-form {
+            width: 100%;
+            padding: 0;
+        }
     
-    .stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
+        .stats {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
     
-    .stat-item {
-        padding: 1rem;
-    }
+        .stat-item {
+            padding: 1rem;
+        }
     
-    .members-grid {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 1rem;
-    }
+        .members-grid {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
     
-    .member-card {
-        padding: 1rem;
-    }
+        .member-card {
+            padding: 1rem;
+        }
     
-    .member-avatar {
-        width: 80px;
-        height: 80px;
-    }
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+        }
     
-    .member-avatar img {
-        width: 100%;
-        height: 100%;
-    }
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+        }
     
-    .name {
-        font-size: 16px;
-    }
+        .name {
+            font-size: 16px;
+        }
     
-    .member-role {
-        font-size: 0.7rem;
-    }
+        .member-role {
+            font-size: 0.7rem;
+        }
     
-    .marquee-item {
-        width: 150px;
-        height: 100px;
-    }
+        .marquee-item {
+            width: 150px;
+            height: 100px;
+        }
     
-    .gallery-categories {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
+        .gallery-categories {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
     
-    .gallery-categories button {
-        width: 90%;
-        min-width: unset;
-    }
+        .gallery-categories button {
+            width: 90%;
+            min-width: unset;
+        }
     
-    .carousel-wrapper {
+        .carousel-wrapper {
         height: 350px;
-    }
+        }
     
-    .carousel-item {
-        width: 200px;
-        height: 250px;
-    }
+        .carousel-item {
+            width: 200px;
+            height: 250px;
+        }
     
-    .carousel-item.prev {
-        transform: translateX(-180px) translateZ(-100px) rotateY(25deg) scale(0.9);
-    }
+        .carousel-item.prev {
+            transform: translateX(-180px) translateZ(-100px) rotateY(25deg) scale(0.9);
+        }
     
-    .carousel-item.next {
-        transform: translateX(180px) translateZ(-100px) rotateY(-25deg) scale(0.9);
-    }
+        .carousel-item.next {
+            transform: translateX(180px) translateZ(-100px) rotateY(-25deg) scale(0.9);
+        }
     
-    .carousel-item.far-prev,
-    .carousel-item.far-next {
-        display: none;
-    }
+        .carousel-item.far-prev,
+        .carousel-item.far-next {
+            display: none;
+        }
     
-    .carousel-nav {
-        bottom: -60px;
-        gap: 1rem;
-    }
+        .carousel-nav {
+            bottom: -60px;
+            gap: 1rem;
+        }
     
-    .nav-btn {
-        width: 35px;
-        height: 35px;
-    }
+        .nav-btn {
+            width: 35px;
+            height: 35px;
+        }
     
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
     
-    .social-links {
-        justify-content: center;
-    }
+        .social-links {
+            justify-content: center;
+        }
     
-    .logo {
-        font-size: 1rem;
-    }
+        .logo {
+            font-size: 1rem;
+        }
     
-    .logo-img {
-        width: 35px;
-        height: 35px;
-    }
+        .logo-img {
+            width: 35px;
+            height: 35px;
+        }
     
-    .mobile-menu-btn {
-        display: block;
-        position: fixed;
-        right: 15px;
-        top: 20px;
-        z-index: 10001;
-    }
+        .mobile-menu-btn {
+            display: block;
+            position: fixed;
+            right: 15px;
+            top: 20px;
+            z-index: 10001;
+        }
     
-    .nav-links {
-        width: 100%;
-        right: -100%;
-        padding: 4rem 2rem;
-    }
+        .nav-links {
+            width: 100%;
+            right: -100%;
+            padding: 4rem 2rem;
+        }
     
-    .nav-links.active {
-        right: 0;
-    }
+        .nav-links.active {
+            right: 0;
+        }
     
-    .lang-switch {
-        top: 70px;
-        right: 5px;
-    }
+        .lang-switch {
+            top: 70px;
+            right: 5px;
+        }
     
-    .lang-btn {
-        padding: 5px 10px;
-        font-size: 0.75rem;
-    }
+       .lang-btn {
+            padding: 5px 10px;
+            font-size: 0.75rem;
+        }
     
-    .form-group input,
-    .form-group textarea {
-        font-size: 16px; /* Prevents zoom on iOS */
-    }
+        .form-group input,
+        .form-group textarea {
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
     
-    .contact-form {
-        padding: 1.5rem 1rem;
-    }
+        .contact-form {
+            padding: 1.5rem 1rem;
+        }
     
-    .mam-logo {
-        width: 100px;
-        height: 100px;
-    }
+        .mam-logo {
+            width: 100px;
+            height: 100px;
+        }
     
-    .humanitarian-card {
-        padding: 2rem 1rem;
-    }
+        .humanitarian-card {
+            padding: 2rem 1rem;
+        }
     
-    .humanitarian-stat .number {
-        font-size: 2rem;
+        .humanitarian-stat .number {
+            font-size: 2rem;
+        }
     }
-}
     </style>
 </head>
 <body>
@@ -2155,7 +2145,7 @@
         </button>
     </nav>
 
-    <!-- Hero Section with BADASS Parallax -->
+    <!-- Hero Section - Parallax -->
     <section class="hero" id="home">
         <div class="hero-parallax-container" id="parallaxContainer">
             <div class="hero-bg" id="parallaxBg"></div>
@@ -2209,13 +2199,13 @@
                     No Limit was founded in 2019 by riders who shared a vision of creating something more than just a motorcycle club. We wanted to build a brotherhood where respect, loyalty, and the love of riding come first.
                 </p>
                 <p data-lang="mk">
-                    Но Лимит e основан во 2019 од возачи кои споделуваа визија за создавање на нешто повеќе од само мото клуб. Сакавме да изградиме братство каде почитта, лојалноста и љубовта кон возењето ce на прво место.
+                    Но Лимит е основан во 2019 од возачи кои споделуваа визија за создавање на нешто повеќе од само мото клуб. Сакавме да изградиме братство каде почитта, лојалноста и љубовта кон возењето се на прво место.
                 </p><br><br>
                 <p data-lang="en" class="active">
                     Every ride is an adventure, every member is family. We don't just ride together—we grow together, support each other, and create memories that last a lifetime.
                 </p>
                 <p data-lang="mk">
-                    Секое возење e авантура, секој член e семејство. Ние не само што возиме заедно—туку растеме заедно, ce поддржуваме и создаваме спомени кои траат цел живот.
+                    Секое возење e авантура, секој член e семејство. Ние не само што возиме заедно—туку растеме заедно, се поддржуваме и создаваме спомени кои траат цел живот.
                 </p>
                 <div class="stats">
                     <div class="stat-item">
@@ -2241,12 +2231,12 @@
         </div>
     </section>
 
-    <!-- Rides Section with INFINITE MARQUEE -->
+    <!-- Rides Section - INFINITE MARQUEE -->
     <section class="rides" id="rides">
         <div class="section-header fade-in">
             <h2>
                 <span data-lang="en" class="active">The Machines</span>
-                <span data-lang="mk">The Machines</span>
+                <span data-lang="mk">Нашите Мотори</span>
             </h2>
             <p>
                 <span data-lang="en" class="active">Build for freedom</span>
@@ -2257,7 +2247,7 @@
         <!-- First Marquee: Left to Right -->
         <div class="marquee-container fade-in">
             <div class="marquee-track" id="marquee1">
-                <!-- 25 items duplicated for seamless loop -->
+                <!-- 25 items duplicated - seamless loop -->
                 <div class="marquee-item"><img src="bike/1.jpg" alt="Bike 1"><div class="marquee-info"><h4>BMW R1200 GS / KTM 1290 Super Adventure / Suzuki V-Strom 1000</h4></div></div>
                 <div class="marquee-item"><img src="bike/2.jpg" alt="Bike 2"><div class="marquee-info"><h4>Suzuki V-Strom 1000 / KTM 1290 Super Adventure / Suzuki V-Strom 650</h4></div></div>
                 <div class="marquee-item"><img src="bike/3.jpg" alt="Bike 3"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
@@ -2283,7 +2273,7 @@
                 <div class="marquee-item"><img src="bike/23.jpg" alt="Bike 23"><div class="marquee-info"><h4>Yamaha FJR1300</h4></div></div>
                 <div class="marquee-item"><img src="bike/24.jpg" alt="Bike 24"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
                 <div class="marquee-item"><img src="bike/25.jpg" alt="Bike 25"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
-                <!-- Duplicate for seamless loop -->
+                <!-- Duplicate - seamless loop -->
                 <div class="marquee-item"><img src="bike/1.jpg" alt="Bike 1"><div class="marquee-info"><h4>BMW R1200 GS / KTM 1290 Super Adventure / Suzuki V-Strom 1000</h4></div></div>
                 <div class="marquee-item"><img src="bike/2.jpg" alt="Bike 2"><div class="marquee-info"><h4>Suzuki V-Strom 1000 / KTM 1290 Super Adventure / Suzuki V-Strom 650</h4></div></div>
                 <div class="marquee-item"><img src="bike/3.jpg" alt="Bike 3"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
@@ -2315,7 +2305,7 @@
         <!-- Second Marquee: Right to Left -->
         <div class="marquee-container fade-in">
             <div class="marquee-track reverse" id="marquee2">
-                <!-- 25 items duplicated for seamless loop -->
+                <!-- 25 items duplicated - seamless loop -->
                 <div class="marquee-item"><img src="bike/26.jpg" alt="Bike 26"><div class="marquee-info"><h4></h4></div></div>
                 <div class="marquee-item"><img src="bike/27.jpg" alt="Bike 27"><div class="marquee-info"><h4></h4></div></div>
                 <div class="marquee-item"><img src="bike/28.jpg" alt="Bike 28"><div class="marquee-info"><h4></h4></div></div>
@@ -2341,7 +2331,7 @@
                 <div class="marquee-item"><img src="bike/48.jpg" alt="Bike 48"><div class="marquee-info"><h4></h4></div></div>
                 <div class="marquee-item"><img src="bike/49.jpg" alt="Bike 49"><div class="marquee-info"><h4></h4></div></div>
                 <div class="marquee-item"><img src="bike/50.jpg" alt="Bike 50"><div class="marquee-info"><h4></h4></div></div>
-                <!-- Duplicate for seamless loop -->
+                <!-- Duplicate - seamless loop -->
                  <div class="marquee-item"><img src="bike/26.jpg" alt="Bike 26"><div class="marquee-info"><h4></h4></div></div>
                 <div class="marquee-item"><img src="bike/27.jpg" alt="Bike 27"><div class="marquee-info"><h4></h4></div></div>
                 <div class="marquee-item"><img src="bike/28.jpg" alt="Bike 28"><div class="marquee-info"><h4></h4></div></div>
@@ -2736,7 +2726,7 @@
             </h2>
             <p>
                 <span data-lang="en" class="active">See the world through our lens</span>
-                <span data-lang="mk">Братство на моторџии</span>
+                <span data-lang="mk">Погледни го светот низ нашите очи</span>
             </p>
         </div>
         
@@ -2761,7 +2751,7 @@
         <div class="carousel-wrapper">
             <div class="carousel-container" id="carouselContainer">
                 <div class="carousel-track" id="carouselTrack">
-                    <!-- Images will be injected here by JavaScript -->
+                    <!--  JavaScript here -->
                 </div>
         
                 <div class="carousel-nav">
@@ -2807,7 +2797,7 @@
                     </div>
                     <div class="contact-item">
                         <span>📱</span>
-                        <span>+389 70 000 000</span>
+                        <span>+389 70 274 911</span>
                     </div>
                 </div>
             </div>
@@ -3016,7 +3006,7 @@
             observer.observe(el);
         });
 
-        // BADASS PARALLAX EFFECT
+        // PARALLAX EFFECT
         let ticking = false;
         const parallaxContainer = document.getElementById('parallaxContainer');
         const parallaxBg = document.getElementById('parallaxBg');
@@ -3026,17 +3016,17 @@
             const windowHeight = window.innerHeight;
             
             if (scrolled < windowHeight) {
-                // Calculate parallax values
+              
                 const yPos = scrolled * 0.5;
                 const scale = 1.1 + (scrolled * 0.0003);
                 const opacity = 1 - (scrolled / (windowHeight * 0.8));
                 
-                // Apply transforms
+               
                 parallaxContainer.style.transform = `translate3d(0, ${yPos}px, 0)`;
                 parallaxBg.style.transform = `scale(${scale})`;
                 parallaxBg.style.opacity = Math.max(opacity, 0.3);
                 
-                // Add rotation for extra badass effect
+               
                 const rotate = scrolled * 0.02;
                 parallaxBg.style.filter = `grayscale(100%) contrast(1.3) brightness(${0.7 + scrolled * 0.0002})`;
             }
@@ -3085,7 +3075,7 @@
                 });
         
                 if (response.ok) {
-                    // Show custom success notification
+                  
                     const messages = {
                         en: 'Message sent! We\'ll be in touch, prospect.',
                         mk: 'Пораката е испратена! Ќе бидеме во контакт, кандидат.'
@@ -3153,7 +3143,6 @@
             });
         });
 
-
         /*gallery*/
          // Gallery Data
             const galleryData = {
@@ -3219,7 +3208,7 @@
             const track = document.getElementById('carouselTrack');
             const container = document.getElementById('carouselContainer');
 
-       // Initialize Gallery - OPTIMIZED VERSION
+       // Initialize Gallery - OPTIMIZED
 function initGallery(category) {
     currentCategory = category;
     currentIndex = 0;
@@ -3259,7 +3248,7 @@ function initGallery(category) {
                     if (loadedCount === restBatch.length) {
                         updateCarousel();
                     }
-                }, idx * 100); // 100ms delay between each
+                }, idx * 100); 
             });
         }
     }, 50);
@@ -3276,14 +3265,13 @@ function createCarouselItem(img, idx, total) {
     const image = item.querySelector('img');
     image.onload = () => item.classList.remove('loading');
     image.onerror = () => {
-        // If image fails to load, hide it
+        
         item.style.display = 'none';
     };
     
     track.appendChild(item);
 }
 
-        // Update Carousel Positions
 // Update Carousel Positions
 function updateCarousel() {
     const items = document.querySelectorAll('.carousel-item:not([style*="display: none"])');
@@ -3292,10 +3280,10 @@ function updateCarousel() {
     if (total === 0) return;
     
     items.forEach((item, idx) => {
-        // Remove all position classes
+        
         item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next', 'hidden');
         
-        // Calculate relative position
+  
         const diff = idx - currentIndex;
         
         if (diff === 0) {
@@ -3337,22 +3325,18 @@ function updateCarousel() {
         document.getElementById('prevBtn').addEventListener('click', prevSlide);
         document.getElementById('nextBtn').addEventListener('click', nextSlide);
 
-        // Category Buttons
         document.querySelectorAll('.gallery-categories button').forEach(btn => {
             btn.addEventListener('click', (e) => {
-        // Get the actual button (not the span inside it)
+        
         const button = e.currentTarget;
         
-        // Update active state
         document.querySelectorAll('.gallery-categories button').forEach(b => b.classList.remove('active'));
         button.classList.add('active');
     
-        // Initialize new category
         initGallery(button.dataset.category);
     });
 });
 
-        // Touch/Drag Support
         container.addEventListener('pointerdown', (e) => {
             isDragging = true;
             startX = e.clientX;
@@ -3369,11 +3353,9 @@ function updateCarousel() {
             velocity = dx;
             currentX = e.clientX;
         
-            // Add resistance to drag
             const items = document.querySelectorAll('.carousel-item');
             items.forEach(item => {
             const currentTransform = getComputedStyle(item).transform;
-            // Optional: Add subtle drag effect here
             });
         });
 
@@ -3382,7 +3364,6 @@ function updateCarousel() {
             isDragging = false;
             container.style.cursor = 'grab';
         
-            // Determine direction based on velocity
             if (Math.abs(velocity) > 5) {
                 if (velocity > 0) {
                     prevSlide();
