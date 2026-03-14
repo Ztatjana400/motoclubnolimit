@@ -1,0 +1,3421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NO LIMIT MK | Born to Ride</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Rajdhani:wght@400;500;600;700&family=Metal+Mania&family=Inter:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blood-red: #8B0000;
+            --rust-orange: #D2691E;
+            --charcoal: #1a1a1a;
+            --dark-metal: #0d0d0d;
+            --chrome: #C0C0C0;
+            --bone: #E5E5E5;
+            --flame: #FF4500;
+            --deep-blood: #4a0000;
+
+        /* NEW VARIABLES */
+            --transition: all 0.3s ease;
+            --gradient-amber: linear-gradient(180deg, #ff9500, #ff5500);
+            --white: #ffffff;
+            --red-accent: #dc2626;
+            --card-bg: rgba(26, 26, 26, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-metal);
+            color: var(--bone);
+            overflow-x: hidden;
+        }
+
+        html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--charcoal);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blood-red);
+            border-radius: 4px;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lang-switch.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+        }
+
+        .lang-btn {
+            background: rgba(13, 13, 13, 0.9);
+            border: 2px solid var(--blood-red);
+            color: var(--bone);
+            padding: 8px 16px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+            font-size: 0.9rem;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--blood-red);
+            color: var(--bone);
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+        }
+
+        /* Hide non-active language */
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].active {
+            display: block;
+        }
+
+        span[data-lang], a[data-lang], p[data-lang], h1[data-lang], h2[data-lang], h3[data-lang], h4[data-lang], li[data-lang] {
+            display: none;
+        }
+
+        span[data-lang].active, a[data-lang].active, p[data-lang].active, h1[data-lang].active, h2[data-lang].active, h3[data-lang].active, h4[data-lang].active, li[data-lang].active {
+            display: inline;
+        }
+
+        div[data-lang], section[data-lang] {
+            display: none;
+        }
+
+        div[data-lang].active, section[data-lang].active {
+            display: block;
+        }
+
+        /* Navigation */
+        nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;      /* Use viewport width instead of % */
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+}
+
+        nav.scrolled {
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            box-shadow: 0 5px 30px rgba(139, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: 'Metal Mania', cursive;
+            font-size: 1.8rem;
+            color: var(--bone);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--blood-red);
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo:hover .logo-img {
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+            transform: rotate(5deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--bone);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--blood-red);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--blood-red);
+        }
+
+        .nav-links a:hover {
+            color: var(--flame);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+    display: none;
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid var(--blood-red);
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10001;
+    border-radius: 4px;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--bone);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+        
+
+        /* Hero Section with BADASS Parallax */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--dark-metal);
+        }
+
+        .hero-parallax-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+                url('PARALAX_BACKGROUND_PICTURE.png');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(1.3) brightness(0.7);
+            transform: scale(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.2) 0%, transparent 50%);
+            animation: pulse-overlay 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-overlay {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+            position: relative;
+            transform: translateZ(0);
+        }
+
+        .hero-badge {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--blood-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulse-badge 2s ease-in-out infinite;
+            box-shadow: 
+                0 0 50px rgba(139, 0, 0, 0.5),
+                inset 0 0 50px rgba(139, 0, 0, 0.2);
+            overflow: hidden;
+            background: rgba(0,0,0,0.5);
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 50px rgba(139, 0, 0, 0.5), inset 0 0 50px rgba(139, 0, 0, 0.2);
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 0 0 80px rgba(139, 0, 0, 0.8), 0 0 100px rgba(255, 69, 0, 0.4), inset 0 0 60px rgba(139, 0, 0, 0.3);
+            }
+        }
+
+        .hero-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: spin 20s linear infinite;
+        }
+
+        .hero h1 {
+            font-family: 'Metal Mania', cursive;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: var(--bone);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            text-shadow: 
+                0 0 20px rgba(139, 0, 0, 0.8),
+                0 0 40px rgba(139, 0, 0, 0.4),
+                0 0 60px rgba(255, 69, 0, 0.2);
+            animation: glitch 3s infinite;
+            line-height: 1.1;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 2px); }
+            94% { transform: translate(2px, -2px); }
+            96% { transform: translate(-2px, -2px); }
+        }
+
+        .hero-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            letter-spacing: 0.3em;
+            color: var(--rust-orange);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            color: rgba(229, 229, 229, 0.8);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            border: 2px solid var(--blood-red);
+            color: var(--bone);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--blood-red);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: var(--bone);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Metal Mania', cursive;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--bone);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+        }
+
+        .section-header p {
+            color: var(--rust-orange);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-metal) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--blood-red);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.5),    /* depth shadow */
+                0 0 40px 5px #350101;            /* red glow */
+            border-radius: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%) contrast(1.1);
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover img {
+            filter: grayscale(0%) contrast(1.1);
+            transform: scale(1.05);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 0, 0, 0.2), transparent);
+            pointer-events: none;
+        }
+
+        .about-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--blood-red);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .about-content p {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(229, 229, 229, 0.9);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            background: rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--blood-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Metal Mania', cursive;
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--blood-red);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--chrome);
+        }
+
+        /* Rides Section with INFINITE MARQUEE */
+        .rides {
+            background: var(--dark-metal);
+            overflow: hidden;
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--dark-metal), transparent);
+        }
+
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--dark-metal), transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: fit-content;
+            animation: marquee-left 40s linear infinite;
+        }
+
+        .marquee-track.reverse {
+            animation: marquee-right 40s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes marquee-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .marquee-item {
+    flex-shrink: 0;
+    width: 300px;
+    height: 200px;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    transform-origin: center center;
+}
+
+.marquee-item:hover {
+    border-color: var(--blood-red);
+    transform: scale(1.08);
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    transform-origin: center center;
+}
+
+.marquee-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+        .marquee-item{
+            cursor:pointer;
+        }
+
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .marquee-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        .marquee-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .marquee-item:hover .marquee-info {
+            transform: translateY(0);
+        }
+
+        .marquee-info h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: var(--bone);
+            margin: 0;
+        }
+
+        /* Members Section */
+        .members {
+            background: linear-gradient(to bottom, var(--charcoal), var(--dark-metal));
+            position: relative;
+        }
+
+        .members::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, var(--dark-metal), transparent);
+            pointer-events: none;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .member-card:hover::before {
+            left: 100%;
+        }
+
+        .member-card:hover {
+            border-color: var(--blood-red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .member-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--blood-red);
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .avatar-blood {
+            position: absolute;
+            top: 10%;      
+            right: 25%;    
+            width: 25px;   
+            height: 25px;  
+            border-radius: 50%; 
+            border: 2px solid var(--bone); 
+            box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+            z-index: 2;     
+            transition: transform 0.3s ease; 
+        }
+
+        .avatar-blood:hover {
+            transform: scale(2.5); /* increase size by 30% */
+        }
+
+        .member-card:hover .member-avatar img {
+            filter: grayscale(0%);
+        }
+
+        .member-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--bone);
+            margin-bottom: 0.3rem;
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .member-role {
+            color: var(--blood-red);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Metal Mania', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--bone);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+        }
+
+        .section-header p {
+            color: var(--rust-orange);
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Category Buttons */
+        .gallery-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .gallery-categories button {
+            padding: 0.8rem 2rem;
+            background: rgba(24, 20, 20, 0.05);
+            border: 0.5px solid rgba(139,0,0,0.3);
+            color: var(--bone);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .gallery-categories button:hover {
+            background: rgba(139,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(139,0,0,0.3);
+        }
+
+        .gallery-categories button.active {
+            background: var(--blood-red);
+            border-color: var(--blood-red);
+            box-shadow: 0 5px 25px rgba(139,0,0,0.5);
+        }
+
+        /* 3D Carousel Container */
+
+         /* Gallery Section */
+        .gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 110vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            perspective: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+        }
+
+        .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+/*MAIN VIEW PICTURE IN GALLERY*/
+        .carousel-item {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    background: var(--card-bg);
+    border: 0.5px solid rgba(139,0,0,0.2);
+    transform-origin: center center;  
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+    transform-origin: center center;  
+}
+
+.carousel-item:hover img {
+    transform: scale(1.1);
+}
+
+.carousel-item.active {
+    transform: translateX(0) translateZ(220px) scale(0.9);
+    z-index: 10;
+    border-color: var(--blood-red);
+    box-shadow: 0 10px 10px rgba(139,0,0,0.2);
+    transform-origin: center center;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* HOVER: grows bigger */
+.carousel-item.active:hover {
+    transform: translateX(0) translateZ(260px) scale(1.0);
+    box-shadow: 0 30px 30px rgba(139,0,0,0.2);
+    border-color: var(--flame);
+    cursor: pointer;
+}
+
+/* CLICKED: back to normal size */
+.carousel-item.active.clicked {
+    transform: translateX(0) translateZ(220px) scale(0.9) !important;
+    box-shadow: 0 30px 60px rgba(139,0,0,0.4);
+}
+
+        /* Side Images */
+        .carousel-item.prev {
+            transform: translateX(-350px) translateZ(-100px) rotateY(25deg) scale(0.9);
+            opacity: 0.7;
+            z-index: 5;
+            filter: brightness(0.7);
+        }
+
+        .carousel-item.next {
+            transform: translateX(350px) translateZ(-100px) rotateY(-25deg) scale(0.9);
+            opacity: 0.7;
+            z-index: 5;
+            filter: brightness(0.7);
+        }
+
+        /* Far Side Images */
+        .carousel-item.far-prev {
+            transform: translateX(-500px) translateZ(-200px) rotateY(35deg) scale(0.8);
+            opacity: 0.4;
+            z-index: 1;
+            filter: brightness(0.5);
+        }
+
+        .carousel-item.far-next {
+            transform: translateX(500px) translateZ(-200px) rotateY(-35deg) scale(0.8);
+            opacity: 0.4;
+            z-index: 1;
+            filter: brightness(0.5);
+        }
+
+        /* Hidden Items */
+        .carousel-item.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateZ(-300px) scale(0.7);
+        }
+
+        /* Play Button Overlay for Active Item */
+        .carousel-item.active:hover::after {
+            transform: scale(1.1);
+        }
+
+        /* Navigation Buttons */
+        .carousel-nav {
+    position: absolute;
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    z-index: 100;
+}
+
+/* Add margin to gallery section to prevent overlap */
+.gallery {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem 8rem 2rem;  /* Increased bottom padding */
+    min-height: auto;  /* Remove fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Ensure next section has clear space */
+.contact {
+    margin-top: 2rem;
+}
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(139,0,0,0.5);
+            color: var(--bone);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--blood-red);
+            border-color: var(--blood-red);
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(139,0,0,0.4);
+        }
+
+        /* Drag Instructions */
+        .drag-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel-item {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .carousel-item.prev {
+                transform: translateX(-280px) translateZ(-100px) rotateY(25deg) scale(0.9);
+            }
+            
+            .carousel-item.next {
+                transform: translateX(280px) translateZ(-100px) rotateY(-25deg) scale(0.9);
+            }
+            
+            .carousel-item.far-prev,
+            .carousel-item.far-next {
+                display: none;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        
+
+        /* Gallery loading state */
+.carousel-item.loading {
+    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Ensure buttons are clickable immediately */
+.gallery-categories button {
+    position: relative;
+    z-index: 10;
+    min-width: 140px;
+}
+
+        /* Humanitarian Section */
+        .humanitarian {
+            background: linear-gradient(135deg, #1a0a0a 0%, #0f0f0f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .humanitarian::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff9500' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .humanitarian-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .humanitarian-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 149, 0, 0.1);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .humanitarian-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-amber);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+        .humanitarian-card:hover {
+            background: rgba(255, 149, 0, 0.05);
+            border-color: rgba(255, 149, 0, 0.3);
+            transform: translateX(10px);
+        }
+        .humanitarian-card:hover::before {
+            transform: scaleY(1);
+        }
+        .humanitarian-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .humanitarian-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        .humanitarian-card p {
+            color: rgba(224, 224, 224, 0.6);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .humanitarian-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .humanitarian-stat .number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--red-accent);
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+        }
+        .humanitarian-stat .label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(224, 224, 224, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 900px) {
+        .humanitarian-grid {
+            grid-template-columns: 1fr;
+            }
+        }
+
+        .humanitarian-card:nth-child(3) p {
+            margin-top: 3rem;
+        }
+
+        .humanitarian-card:nth-child(2) .humanitarian-stat {
+            margin-top: 3rem; 
+        }
+
+        .humanitarian-card:nth-child(3) .humanitarian-stat {
+            margin-top: 3rem; 
+        }
+
+        /* MAM Association Section */
+        .association {
+            background: linear-gradient(to bottom, var(--dark-metal), var(--charcoal));
+            padding: 4rem 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .association-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mam-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            background: rgba(255,255,255,0.1);
+            border: 3px solid var(--blood-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .mam-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
+        }
+
+        .mam-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        .association h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--bone);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .association p {
+            color: rgba(229, 229, 229, 0.8);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #0d0d0d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(139, 0, 0, 0.03) 35px, rgba(139, 0, 0, 0.03) 70px);
+            pointer-events: none;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--blood-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: rgba(229, 229, 229, 0.8);
+            font-size: 1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+
+        .contact-item span:first-child {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 0, 0, 0.2);
+            border: 1px solid var(--blood-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blood-red);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: rgba(0,0,0,0.3);
+            padding: 2.5rem;
+            border: 1px solid rgba(139, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            color: var(--chrome);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            color: var(--bone);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blood-red);
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.2);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--blood-red);
+            border: none;
+            color: var(--bone);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #a00000;
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 4rem 5% 2rem;
+            border-top: 3px solid var(--blood-red);
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--bone);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--blood-red);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(229, 229, 229, 0.6);
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--blood-red);
+        }
+
+        /* Social Icons SVG */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .social-links a svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--bone);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--blood-red);
+            border-color: var(--blood-red);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+        }
+
+        .social-links a:hover svg {
+            fill: white;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 0, 0, 0.2);
+            color: rgba(229, 229, 229, 0.4);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom span {
+            color: var(--blood-red);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design - Mobile First */
+        @media (max-width: 968px) {
+            .lang-switch {
+                top: 80px;
+                right: 10px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(13, 13, 13, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: right 0.4s ease;
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .mobile-menu-btn {
+                display: block !important;
+                position: fixed;
+                right: 20px;
+                top: 25px;
+            }
+
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero {
+                min-height: 500px;
+                height: auto;
+                padding: 100px 0;
+            }
+
+            .hero-badge {
+                width: 140px;
+                height: 140px;
+            }
+
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .marquee-item {
+                width: 250px;
+                height: 170px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .event-item,
+            .event-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+
+            .event-date {
+                left: 30px;
+                transform: translateX(-50%);
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .event-item:nth-child(odd) .event-content::after,
+            .event-item:nth-child(even) .event-content::after {
+                left: -10px;
+                right: auto;
+                border: 10px solid transparent;
+                border-right-color: rgba(139, 0, 0, 0.3);
+            }
+
+            .event-content {
+                padding: 1.5rem;
+            }
+
+            /* .charity-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            } */
+
+            .mam-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 0.2em;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .marquee-item {
+                width: 200px;
+                height: 140px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            /* .charity-card {
+                padding: 1.5rem;
+            } */
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1920px) {
+            .hero h1 {
+                font-size: 8rem;
+            }
+
+            .nav-links {
+                gap: 3rem;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 8rem 10%;
+            }
+
+            .marquee-item {
+                width: 350px;
+                height: 250px;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        /*-------------------------HONOR BADGE------------------------------------*/
+        /* Hover effect */
+        .honor-badge {
+            width: 100px;        /* Small size */
+            height: auto;       /* Keep proportions */
+            display: block;     /* Allows centering */
+            margin: 0 auto;     /* Center horizontally */
+            transition: transform 0.3s ease;
+        }
+
+        .honor-badge:hover {
+            transform: scale(1.8);
+        }
+
+        .vice_president {
+            width: 83px;        /* Small size */
+            height: auto;       /* Keep proportions */
+            display: block;     /* Allows centering */
+            margin: 0 auto;     /* Center horizontally */
+            margin-top: 5%;
+            transition: transform 0.3s ease;
+        }
+
+        .vice_president:hover {
+            transform: scale(1.8);
+        }
+
+        /*-------------------------------------------------------------*/
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-metal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(139, 0, 0, 0.2);
+            border-top-color: var(--blood-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+
+        .loader-text {
+            font-family: 'Metal Mania', cursive;
+            font-size: 1.2rem;
+            color: var(--blood-red);
+            letter-spacing: 0.2em;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /*fix for en/mk in contactform*/
+        label[data-lang] {
+            display: none;
+        }
+
+        label[data-lang].active {
+            display: inline;
+        }
+
+        /* Extra Small Phones (Samsung Galaxy fold, small Androids) */
+@media (max-width: 360px) {
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .hero {
+        min-height: 100vh;
+        padding: 80px 0;
+    }
+    
+    .hero-content {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        word-break: break-word;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+    }
+    
+    .hero-text {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-badge {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    section {
+        padding: 3rem 3%;
+    }
+    
+    .about-grid,
+    .contact-container,
+    .humanitarian-grid {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .about-content,
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+    }
+    
+    .members-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+    
+    .member-card {
+        padding: 1rem;
+    }
+    
+    .member-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .member-avatar img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .name {
+        font-size: 16px;
+    }
+    
+    .member-role {
+        font-size: 0.7rem;
+    }
+    
+    .marquee-item {
+        width: 150px;
+        height: 100px;
+    }
+    
+    .gallery-categories {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .gallery-categories button {
+        width: 90%;
+        min-width: unset;
+    }
+    
+    .carousel-wrapper {
+        height: 350px;
+    }
+    
+    .carousel-item {
+        width: 200px;
+        height: 250px;
+    }
+    
+    .carousel-item.prev {
+        transform: translateX(-180px) translateZ(-100px) rotateY(25deg) scale(0.9);
+    }
+    
+    .carousel-item.next {
+        transform: translateX(180px) translateZ(-100px) rotateY(-25deg) scale(0.9);
+    }
+    
+    .carousel-item.far-prev,
+    .carousel-item.far-next {
+        display: none;
+    }
+    
+    .carousel-nav {
+        bottom: -60px;
+        gap: 1rem;
+    }
+    
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .logo-img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        right: 15px;
+        top: 20px;
+        z-index: 10001;
+    }
+    
+    .nav-links {
+        width: 100%;
+        right: -100%;
+        padding: 4rem 2rem;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .lang-switch {
+        top: 70px;
+        right: 5px;
+    }
+    
+    .lang-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .contact-form {
+        padding: 1.5rem 1rem;
+    }
+    
+    .mam-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .humanitarian-card {
+        padding: 2rem 1rem;
+    }
+    
+    .humanitarian-stat .number {
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!------------------------------------------------------------------------------------------------------------------------------------------>
+    <!-- Language Switcher -->
+    <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="switchLang('mk')" id="btn-mk">MK</button>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text active" data-lang="en">LOADING...</div>
+            <div data-lang="mk">ВЧИТУВАЊЕ...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-img">
+                <img src="logo.png" alt="No Limit MC Logo">
+            </div>
+            <span>Moto Club No Limit</span>
+        </a>
+    <ul class="nav-links" id="navLinks">
+        <li>
+            <a href="#home" data-lang="en" class="active">Home</a>
+            <a href="#home" data-lang="mk">Дома</a>
+        </li>
+        <li>
+            <a href="#about" data-lang="en" class="active">About</a>
+            <a href="#about" data-lang="mk">За Нас</a>
+        </li>
+        <li>
+            <a href="#rides" data-lang="en" class="active">Rides</a>
+            <a href="#rides" data-lang="mk">Мотори</a>
+        </li>
+        <li>
+            <a href="#members" data-lang="en" class="active">Crew</a>
+            <a href="#members" data-lang="mk">Екипа</a>
+        </li>
+        <li>
+            <a href="#humanitarian" data-lang="en" class="active">Charity</a>
+            <a href="#humanitarian" data-lang="mk">Хуманост</a>
+        </li>
+        <li>
+            <a href="#gallery" data-lang="en" class="active">Gallery</a>
+               <a href="#gallery" data-lang="mk">Галерија</a>
+        </li>
+        <li>
+           <a href="#contact" data-lang="en" class="active">Contact</a>
+            <a href="#contact" data-lang="mk">Контакт</a>
+        </li>
+    </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section with BADASS Parallax -->
+    <section class="hero" id="home">
+        <div class="hero-parallax-container" id="parallaxContainer">
+            <div class="hero-bg" id="parallaxBg"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <img src="NO_LIMIT_BACK.png" alt="Club Logo">
+            </div>
+            <h1>
+                <span data-lang="en" class="active">No Limit</span>
+                <span data-lang="mk">No Limit</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span data-lang="en" class="active">Ride with Honor. Ride with Pride.</span>
+                <span data-lang="mk">Возете co Чест. Возете co Гордост.</span>
+            </p>
+            <p class="hero-text">
+                <span data-lang="en" class="active">Riding has always been in our blood. 
+                                                    The club may have started in 2019, but 
+                                                    the road has shaped us for a lifetime.</span>
+                <span data-lang="mk">Возењето отсекогаш било во нашата крв. Клубот можеби започна во 2019, 
+                                     но патот нè обликуваше цел живот.</span>
+            </p>
+            <a href="#contact" class="cta-button">
+                <span data-lang="en" class="active">Join The Pack</span>
+                <span data-lang="mk">Приклучи ce</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Our Legacy</span>
+                <span data-lang="mk">Нашето Наследство</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">Built on respect, honor, and the open road</span>
+                <span data-lang="mk">Изградено врз почит, чест и отворен пат</span>
+            </p>
+        </div>
+        <div class="about-grid">
+            <div class="about-content fade-in">
+                <h3>
+                    <span data-lang="en" class="active">Freedom Found on two wheels</span>
+                    <span data-lang="mk">Слобода пронајдена на две тркала</span>
+                </h3>
+                <p data-lang="en" class="active">
+                    No Limit was founded in 2019 by riders who shared a vision of creating something more than just a motorcycle club. We wanted to build a brotherhood where respect, loyalty, and the love of riding come first.
+                </p>
+                <p data-lang="mk">
+                    Но Лимит e основан во 2019 од возачи кои споделуваа визија за создавање на нешто повеќе од само мото клуб. Сакавме да изградиме братство каде почитта, лојалноста и љубовта кон возењето ce на прво место.
+                </p><br><br>
+                <p data-lang="en" class="active">
+                    Every ride is an adventure, every member is family. We don't just ride together—we grow together, support each other, and create memories that last a lifetime.
+                </p>
+                <p data-lang="mk">
+                    Секое возење e авантура, секој член e семејство. Ние не само што возиме заедно—туку растеме заедно, ce поддржуваме и создаваме спомени кои траат цел живот.
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label" data-lang="en" class="active">Years Riding Together</span>
+                        <span class="stat-label" data-lang="mk">Години Заедно Возење</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20</span>
+                        <span class="stat-label" data-lang="en" class="active">Members</span>
+                        <span class="stat-label" data-lang="mk">Членови</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label" data-lang="en" class="active">Kilometers Ridden</span>
+                        <span class="stat-label" data-lang="mk">Извозени Километри</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image fade-in">
+                <img src="moto_group.jpg" alt="Motorcycle Club">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rides Section with INFINITE MARQUEE -->
+    <section class="rides" id="rides">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">The Machines</span>
+                <span data-lang="mk">The Machines</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">Build for freedom</span>
+                <span data-lang="mk">Создадени за слобода</span>
+            </p>
+        </div>
+        
+        <!-- First Marquee: Left to Right -->
+        <div class="marquee-container fade-in">
+            <div class="marquee-track" id="marquee1">
+                <!-- 25 items duplicated for seamless loop -->
+                <div class="marquee-item"><img src="bike/1.jpg" alt="Bike 1"><div class="marquee-info"><h4>BMW R1200 GS / KTM 1290 Super Adventure / Suzuki V-Strom 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/2.jpg" alt="Bike 2"><div class="marquee-info"><h4>Suzuki V-Strom 1000 / KTM 1290 Super Adventure / Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/3.jpg" alt="Bike 3"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/4.jpg" alt="Bike 4"><div class="marquee-info"><h4>BMW R1200GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/5.jpg" alt="Bike 5"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/6.jpg" alt="Bike 6"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/7.jpg" alt="Bike 7"><div class="marquee-info"><h4>Kawasaki Versys 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/8.jpg" alt="Bike 8"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/9.jpg" alt="Bike 9"><div class="marquee-info"><h4>Yamaha FZ6</h4></div></div>
+                <div class="marquee-item"><img src="bike/10.jpg" alt="Bike 10"><div class="marquee-info"><h4>BMW 1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/11.jpg" alt="Bike 11"><div class="marquee-info"><h4>Honda VFR800F</h4></div></div>
+                <div class="marquee-item"><img src="bike/12.jpg" alt="Bike 12"><div class="marquee-info"><h4>Suzuki DL V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/13.jpg" alt="Bike 13"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+                <div class="marquee-item"><img src="bike/14.jpg" alt="Bike 14"><div class="marquee-info"><h4>Ducati Multistrada V2</h4></div></div>
+                <div class="marquee-item"><img src="bike/15.jpg" alt="Bike 15"><div class="marquee-info"><h4>KTM 1290 Super Adventure</h4></div></div>
+                <div class="marquee-item"><img src="bike/16.jpg" alt="Bike 16"><div class="marquee-info"><h4>Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/17.jpg" alt="Bike 17"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/18.jpg" alt="Bike 18"><div class="marquee-info"><h4>Yamaha XT660Z Tenere</h4></div></div>
+                <div class="marquee-item"><img src="bike/19.jpg" alt="Bike 19"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/20.jpg" alt="Bike 20"><div class="marquee-info"><h4>Benelli TRK 502X</h4></div></div>
+                <div class="marquee-item"><img src="bike/21.jpg" alt="Bike 21"><div class="marquee-info"><h4>BMW R1250RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/22.jpg" alt="Bike 22"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/23.jpg" alt="Bike 23"><div class="marquee-info"><h4>Yamaha FJR1300</h4></div></div>
+                <div class="marquee-item"><img src="bike/24.jpg" alt="Bike 24"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/25.jpg" alt="Bike 25"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><img src="bike/1.jpg" alt="Bike 1"><div class="marquee-info"><h4>BMW R1200 GS / KTM 1290 Super Adventure / Suzuki V-Strom 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/2.jpg" alt="Bike 2"><div class="marquee-info"><h4>Suzuki V-Strom 1000 / KTM 1290 Super Adventure / Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/3.jpg" alt="Bike 3"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/4.jpg" alt="Bike 4"><div class="marquee-info"><h4>BMW R1200GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/5.jpg" alt="Bike 5"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/6.jpg" alt="Bike 6"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/7.jpg" alt="Bike 7"><div class="marquee-info"><h4>Kawasaki Versys 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/8.jpg" alt="Bike 8"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/9.jpg" alt="Bike 9"><div class="marquee-info"><h4>Yamaha FZ6</h4></div></div>
+                <div class="marquee-item"><img src="bike/10.jpg" alt="Bike 10"><div class="marquee-info"><h4>BMW 1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/11.jpg" alt="Bike 11"><div class="marquee-info"><h4>Honda VFR800F</h4></div></div>
+                <div class="marquee-item"><img src="bike/12.jpg" alt="Bike 12"><div class="marquee-info"><h4>Suzuki DL V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/13.jpg" alt="Bike 13"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+                <div class="marquee-item"><img src="bike/14.jpg" alt="Bike 14"><div class="marquee-info"><h4>Ducati Multistrada V2</h4></div></div>
+                <div class="marquee-item"><img src="bike/15.jpg" alt="Bike 15"><div class="marquee-info"><h4>KTM 1290 Super Adventure</h4></div></div>
+                <div class="marquee-item"><img src="bike/16.jpg" alt="Bike 16"><div class="marquee-info"><h4>Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/17.jpg" alt="Bike 17"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/18.jpg" alt="Bike 18"><div class="marquee-info"><h4>Yamaha XT660Z Tenere</h4></div></div>
+                <div class="marquee-item"><img src="bike/19.jpg" alt="Bike 19"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/20.jpg" alt="Bike 20"><div class="marquee-info"><h4>Benelli TRK 502X</h4></div></div>
+                <div class="marquee-item"><img src="bike/21.jpg" alt="Bike 21"><div class="marquee-info"><h4>BMW R1250RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/22.jpg" alt="Bike 22"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/23.jpg" alt="Bike 23"><div class="marquee-info"><h4>Yamaha FJR1300</h4></div></div>
+                <div class="marquee-item"><img src="bike/24.jpg" alt="Bike 24"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/25.jpg" alt="Bike 25"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+            </div>
+        </div>
+
+        <!-- Second Marquee: Right to Left -->
+        <div class="marquee-container fade-in">
+            <div class="marquee-track reverse" id="marquee2">
+                <!-- 25 items duplicated for seamless loop -->
+                <div class="marquee-item"><img src="bike/26.jpg" alt="Bike 26"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/27.jpg" alt="Bike 27"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/28.jpg" alt="Bike 28"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/29.jpg" alt="Bike 29"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/30.jpg" alt="Bike 30"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/31.jpg" alt="Bike 31"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/32.jpg" alt="Bike 32"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/33.jpg" alt="Bike 33"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/34.jpg" alt="Bike 34"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/35.jpg" alt="Bike 35"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/36.jpg" alt="Bike 36"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/37.jpg" alt="Bike 37"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/38.jpg" alt="Bike 38"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/39.jpg" alt="Bike 39"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/40.jpg" alt="Bike 40"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/41.jpg" alt="Bike 41"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/42.jpg" alt="Bike 42"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/43.jpg" alt="Bike 43"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/44.jpg" alt="Bike 44"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/45.jpg" alt="Bike 45"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/46.jpg" alt="Bike 46"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/47.jpg" alt="Bike 47"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/48.jpg" alt="Bike 48"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/49.jpg" alt="Bike 49"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/50.jpg" alt="Bike 50"><div class="marquee-info"><h4></h4></div></div>
+                <!-- Duplicate for seamless loop -->
+                 <div class="marquee-item"><img src="bike/26.jpg" alt="Bike 26"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/27.jpg" alt="Bike 27"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/28.jpg" alt="Bike 28"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/29.jpg" alt="Bike 29"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/30.jpg" alt="Bike 30"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/31.jpg" alt="Bike 31"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/32.jpg" alt="Bike 32"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/33.jpg" alt="Bike 33"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/34.jpg" alt="Bike 34"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/35.jpg" alt="Bike 35"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/36.jpg" alt="Bike 36"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/37.jpg" alt="Bike 37"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/38.jpg" alt="Bike 38"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/39.jpg" alt="Bike 39"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/40.jpg" alt="Bike 40"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/41.jpg" alt="Bike 41"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/42.jpg" alt="Bike 42"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/43.jpg" alt="Bike 43"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/44.jpg" alt="Bike 44"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/45.jpg" alt="Bike 45"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/46.jpg" alt="Bike 46"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/47.jpg" alt="Bike 47"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/48.jpg" alt="Bike 48"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/49.jpg" alt="Bike 49"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/50.jpg" alt="Bike 50"><div class="marquee-info"><h4></h4></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section - UPDATED WITH CORRECT NAMES -->
+    <section class="members" id="members">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">The Crew</span>
+                <span data-lang="mk">Екипата</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">A Brotherhood of Riders</span>
+                <span data-lang="mk">Братство на моторџии</span>
+            </p>
+        </div>
+        <div class="members-grid">
+            <!-- Darko - President -->
+             <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/darko.jpg" alt="Darko"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Darko</span><br>
+                <span data-lang="mk" class="name">Дарко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="president.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Icko - Vice President -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/icko.jpg" alt="Icko"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Icko</span><br>
+                <span data-lang="mk" class="name">Ицко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="vice_president.png" 
+                     alt="Honorary Member" 
+                     class="vice_president"
+                     data-lang="en">
+            </div>
+
+            <!-- Zarko - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/zarko.jpg" alt="Zarko"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Zarko</span><br>
+                <span data-lang="mk" class="name">Жарко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="honor.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Kokan - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kokan.jpg" alt="Kokan"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Kokan</span><br>
+                <span data-lang="mk" class="name">Кокан</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="honor.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Vasko - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/vasko.jpg" alt="Vasko"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Vasko</span><br>
+                <span data-lang="mk" class="name">Васко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="honor.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Zoran - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/zoran.jpg" alt="Zoran"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Zoran</span>
+                <span data-lang="mk" class="name">Зоран</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Tatjana A. - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/tatjana_a.jpg" alt="Tatjana A."></div>
+                
+                <span data-lang="en" class="active name">Tanja</span>
+                <span data-lang="mk" class="name">Тања</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Sasho - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/sasho.jpg" alt="Sasho"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Sasho</span>
+                <span data-lang="mk" class="name">Сашо</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Tatjana M. - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/tatjana_m.jpg" alt="Tatjana M."></div>
+                
+                <span data-lang="en" class="active name">Tatjana</span>
+                <span data-lang="mk" class="name">Татјана</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Dime - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/dime.jpg" alt="Dime"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Dime</span>
+                <span data-lang="mk" class="name">Диме</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Bojan - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/bojan.jpg" alt="Bojan"></div>
+                
+                <span data-lang="en" class="active name">Bojan</span>
+                <span data-lang="mk" class="name">Бојан</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Kiko - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kiko.jpg" alt="Kiko"></div>
+                
+                <span data-lang="en" class="active name">Kiko</span>
+                <span data-lang="mk" class="name">Кико</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Kester - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kester.jpg" alt="Kester"></div>
+                
+                <span data-lang="en" class="active name">Kester</span>
+                <span data-lang="mk" class="name">Кестер</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Zone - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/zone.jpg" alt="Zone"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Zone</span>
+                <span data-lang="mk" class="name">Ѕоне</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Bobi - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/bobi.jpg" alt="Bobi"></div>
+                
+                <span data-lang="en" class="active name">Bobi</span>
+                <span data-lang="mk" class="name">Боби</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Trim - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/trim.jpg" alt="Trim"></div>
+
+                <span data-lang="en" class="active name">Trim</span>
+                <span data-lang="mk" class="name">Трим</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Ivo - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/ivo.jpg" alt="Ivo"></div>
+                
+                <span data-lang="en" class="active name">Ivo</span>
+                <span data-lang="mk" class="name">Иво</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Kristijan - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kristijan.jpg" alt="Kristijan"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Kristijan</span>
+                <span data-lang="mk" class="name">Кристијан</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Emanuel - Prospect -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/emanuel.jpg" alt="Emanuel"></div>
+                
+                <span data-lang="en" class="active name">Emanuel</span>
+                <span data-lang="mk" class="name">Емануел</span><br>
+
+                <p class="member-role active" data-lang="en">Prospect</p>
+                <p class="member-role" data-lang="mk">Кандидат</p>
+            </div>
+
+            <!-- Martin - Prospect -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/martin.jpg" alt="Martin"></div>
+                <img src="blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Martin</span>
+                <span data-lang="mk" class="name">Мартин</span><br>
+
+                <p class="member-role active" data-lang="en">Prospect</p>
+                <p class="member-role" data-lang="mk">Кандидат</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Humanitarian Section -->
+    <section class="humanitarian" id="humanitarian">
+        <div class="section-header fade-in">
+            
+            <h2>
+                <span data-lang="en" class="active">Humanitary Actions</span>
+                <span data-lang="mk">Хуманитарни Акции</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">We believe in using our passion to make a difference.</span>
+                <span data-lang="mk">Веруваме во користење на нашата страст за да направиме разлика.</span>
+            </p>
+        </div>
+
+        <div class="humanitarian-grid">
+            <div class="humanitarian-card fade-in">
+                <span class="humanitarian-icon">🩸</span>
+                <h3>
+                    <span data-lang="en" class="active">Blood Donations</span>
+                    <span data-lang="mk">Крводарителски Акции</span>
+                </h3>
+                <p>
+                    <span data-lang="en" class="active">Regular organized blood donation drives. Our members donate blood to support local hospitals and save lives in our community.</span>
+                    <span data-lang="mk">Редовни организирани акции за донација на крв. Нашите членови донираат крв за поддршка на локалните болници и спасување животи во нашата заедница.</span>
+                </p>
+                <div class="humanitarian-stat">
+                    <span class="number">220+</span>
+                    <span class="label">
+                        <span data-lang="en" class="active">blood donations</span>
+                        <span data-lang="mk">донации на крв</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="humanitarian-card fade-in">
+                <span class="humanitarian-icon">🤝</span>
+                <h3>
+                    <span data-lang="en" class="active">Charity Donations</span>
+                    <span data-lang="mk">Хуманитарни Донации</span>
+                </h3>
+                <p>
+                    <span data-lang="en" class="active">Supporting families in need, organizing charity rides, and helping local communities.</span>
+                    <span data-lang="mk">Поддршка и донации на семејства од ранлива категорија, организирани хуманитарни возења и помош на локалните заедници.</span>
+                </p>
+
+                <div class="humanitarian-stat">
+                    <span class="number">15+</span>
+                    <span class="label">
+                        <span data-lang="en" class="active">Charity Donations</span>
+                        <span data-lang="mk">15+ Хуманитарни Донации</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="humanitarian-card fade-in">
+                <span class="humanitarian-icon">🏍️</span>
+                <h3>
+                    <span data-lang="en" class="active">Road Safety</span>
+                    <span data-lang="mk">Безбедност на Патот</span>
+                </h3>
+                <p>
+                    <span data-lang="en" class="active">Safety isn't optional. Every ride, every kilometer, we gear up and stay sharp. Sharing knowledge, preventing accidents.</span>
+                    <span data-lang="mk">Безбедноста не e избор. Секое возење, секој километар, сме co опрема и будни. Споделувај знаење, спречи несреќа.</span>
+                </p>
+                <div class="humanitarian-stat">
+                    <span class="number">24/7</span>   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAM Association Section -->
+    <section class="association" id="association">
+        <div class="association-content fade-in">
+            <div class="mam-logo">
+                <img src="mam.png" alt="MAM Moto Asocijacija na Makedonija">
+            </div>
+            <h3>
+                <span data-lang="en" class="active">Proud Members of MAM</span>
+                <span data-lang="mk">Горди Членови на MAM</span>
+            </h3>
+            <p data-lang="en" class="active">
+                No Limit members are officially registered with the (MAM) Moto Asocijacija na Makedonija, the governing body for motorcycle clubs in Macedonia.
+            </p>
+            <p data-lang="mk">
+                Но Лимит членовите се официјално регистрирани во (МАМ) Мото Асоцијација на Македонија, управно тело за мото-клубови во Македонија.
+            </p>
+        </div>
+    </section>
+
+    <!------GALLERY----------------------------------------------------------------->
+    <section class="gallery" id="gallery">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Gallery</span>
+                <span data-lang="mk">Галерија</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">See the world through our lens</span>
+                <span data-lang="mk">Братство на моторџии</span>
+            </p>
+        </div>
+        
+        <!-- Category buttons -->
+        <div class="gallery-categories">
+            <button data-category="trips">
+                <span data-lang="en">Trips</span>
+                <span data-lang="mk">Патувања</span>
+            </button>
+
+            <button data-category="charity">
+                <span data-lang="en">Charity Rides</span>
+                <span data-lang="mk">Хуманитарни возења</span>
+            </button>
+
+            <button data-category="blood">
+                <span data-lang="en">Blood donations</span>
+                <span data-lang="mk">Крводарителски акции</span>
+            </button>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-container" id="carouselContainer">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Images will be injected here by JavaScript -->
+                </div>
+        
+                <div class="carousel-nav">
+                    <button class="nav-btn prev" id="prevBtn">&#10094;</button>
+                    <button class="nav-btn next" id="nextBtn">&#10095;</button>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Join The Brotherhood</span>
+                <span data-lang="mk">Приклучи се на Братството</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">Prospects welcome. Wannabes need not apply.</span>
+                <span data-lang="mk">Кандидати добредојдени. Желбари не треба да аплицираат.</span>
+            </p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>
+                    <span data-lang="en" class="active">Get In Touch</span>
+                    <span data-lang="mk">Контактирај нè</span>
+                </h3>
+                <p data-lang="en" class="active">
+                    Interested in becoming a prospect? Want to collaborate on an event? Drop us a line.
+                </p>
+                <p data-lang="mk">
+                    Заинтересирани да станете кандидат? Сакате да соработувате на настан? Испратете ни порака.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Skopje, Macedonia</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>motoclubnolimit@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+389 70 000 000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form fade-in">
+                <form id="contactForm" action="https://getform.io/f/l17rrl14dxv" method="POST">
+                    <div class="form-group">
+                        <label for="name" data-lang="en" class="active">Name</label>
+                        <label for="name" data-lang="mk">Име</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-lang="en" class="active">Mobile Number</label>
+                        <label for="phone" data-lang="mk">Мобилен Број</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bike" data-lang="en" class="active">Current Ride</label>
+                        <label for="bike" data-lang="mk">Сегашен Мотор</label>
+                        <input type="text" id="bike" name="bike" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-lang="en" class="active">Message</label>
+                        <label for="message" data-lang="mk">Порака</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span data-lang="en" class="active">Send Message</span>
+                        <span data-lang="mk">Испрати Порака</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>No Limit MK</h4>
+
+                <div class="social-links">
+                    <a href="https://facebook.com/profile.php?id=100064473259948" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/moto_club_no_limit?igsh=NWhwdGo0a3liMzE5" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/@mknolimit?si=9I44eUSFhJjZgKFn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4 data-lang="en" class="active">Quick Links</h4>
+                <h4 data-lang="mk">Брзи Линкови</h4>
+                <br><br>
+                <p><a href="#about" data-lang="en" class="active">About Us</a> <a href="#about" data-lang="mk">Зa Hac</a></p>
+                <p><a href="#rides" data-lang="en" class="active">Our Bikes</a> <a href="#rides" data-lang="mk">Нашите Мотори</a></p>
+                <p><a href="#humanitarian" data-lang="en" class="active">Charity</a> <a href="#humanitarian" data-lang="mk">Хуманост</a></p>
+                <p><a href="#gallery" data-lang="en" class="active">Gallery</a> <a href="#gallery" data-lang="mk">Галерија</a></p>
+            </div>
+            <div class="footer-section">
+                <h4 data-lang="en" class="active">Clubhouse</h4>
+                <h4 data-lang="mk">Клуб</h4>
+                <p data-lang="en" class="active"><br><br>
+                    Open 6PM - Late<br>
+                    Members Only
+                </p>
+                <br><br>
+                <p data-lang="mk">
+                    Отворено 18:00 - Доцна<br>
+                    Само за Членови
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 data-lang="en" class="active">Support</h4>
+                <h4 data-lang="mk">Поддршка</h4>
+                <p data-lang="en" class="active"><br><br>
+                    MAM - Moto Asociation of Macedonia<br>
+                    Blood Donation Center<br>
+                    Local Food 
+                </p>
+                <br><br>
+                <p data-lang="mk">
+                    МАМ - Мото Асоцијација на Македонија<br>
+                    Центар за Донирање Крв<br>
+                    Локална Храна
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 No Limit MK.
+                <span data-lang="en" class="active">All rights reserved.</span>
+                <span data-lang="mk">Сите права задржани.</span>
+                <span> | </span>
+                <span data-lang="en" class="active">Ride with Honor. Ride with Pride.</span>
+                <span data-lang="mk">Вози со Чест. Вози со Гордост.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+     /*-----------------------------------------------------------*/
+        // Language Switch Function
+        function switchLang(lang) {
+        // Update language button active state
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+
+        // Show/hide elements by language
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+
+        // Also make sure gallery category buttons update
+            document.querySelectorAll('.gallery-categories button').forEach(btn => {
+                btn.querySelectorAll('[data-lang]').forEach(span => {
+                    if (span.getAttribute('data-lang') === lang) {
+                    span.classList.add('active');
+                    } else {
+                    span.classList.remove('active');
+                    }
+                });
+            });
+
+            localStorage.setItem('preferredLang', lang);
+            document.documentElement.lang = lang === 'mk' ? 'mk' : 'en';
+        }
+        
+        window.addEventListener('load', () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'en';
+            switchLang(savedLang);
+    
+            // Set default gallery category button as active
+            document.querySelectorAll('.gallery-categories button').forEach(btn => {
+            if (btn.dataset.category === 'trips') {
+                btn.classList.add('active');
+            }
+        });
+    
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 1000);
+});
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const langSwitch = document.getElementById('langSwitch');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            if (window.scrollY > window.innerHeight - 100) {
+                langSwitch.classList.add('hidden');
+            } else {
+                langSwitch.classList.remove('hidden');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // BADASS PARALLAX EFFECT
+        let ticking = false;
+        const parallaxContainer = document.getElementById('parallaxContainer');
+        const parallaxBg = document.getElementById('parallaxBg');
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            
+            if (scrolled < windowHeight) {
+                // Calculate parallax values
+                const yPos = scrolled * 0.5;
+                const scale = 1.1 + (scrolled * 0.0003);
+                const opacity = 1 - (scrolled / (windowHeight * 0.8));
+                
+                // Apply transforms
+                parallaxContainer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                parallaxBg.style.transform = `scale(${scale})`;
+                parallaxBg.style.opacity = Math.max(opacity, 0.3);
+                
+                // Add rotation for extra badass effect
+                const rotate = scrolled * 0.02;
+                parallaxBg.style.filter = `grayscale(100%) contrast(1.3) brightness(${0.7 + scrolled * 0.0002})`;
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
+        // Marquee speed control based on scroll
+        let marqueeSpeed = 40;
+        const marquee1 = document.getElementById('marquee1');
+        const marquee2 = document.getElementById('marquee2');
+        
+        window.addEventListener('scroll', () => {
+            const scrollSpeed = Math.abs(window.scrollY - (window.lastScrollY || 0));
+            window.lastScrollY = window.scrollY;
+            
+            // Pause marquees when scrolling fast
+            if (scrollSpeed > 50) {
+                marquee1.style.animationPlayState = 'paused';
+                marquee2.style.animationPlayState = 'paused';
+            } else {
+                marquee1.style.animationPlayState = 'running';
+                marquee2.style.animationPlayState = 'running';
+            }
+        });
+
+        /*CONTACT FORM*/
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            const form = e.target;
+            const formData = new FormData(form);
+            const currentLang = localStorage.getItem('preferredLang') || 'en';
+    
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData
+                });
+        
+                if (response.ok) {
+                    // Show custom success notification
+                    const messages = {
+                        en: 'Message sent! We\'ll be in touch, prospect.',
+                        mk: 'Пораката е испратена! Ќе бидеме во контакт, кандидат.'
+                    };
+            
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: var(--blood-red);
+                        color: white;
+                        padding: 1.5rem 2rem;
+                        border-radius: 4px;
+                        font-family: 'Oswald', sans-serif;
+                        font-weight: 600;
+                        z-index: 10001;
+                        transform: translateX(400px);
+                        transition: transform 0.4s ease;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                        max-width: 300px;
+                    `;
+                    notification.textContent = messages[currentLang];
+                        document.body.appendChild(notification);
+            
+                    setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+                    setTimeout(() => {
+                        notification.style.transform = 'translateX(400px)';
+                        setTimeout(() => notification.remove(), 400);
+                    }, 3000);
+            
+                    form.reset();
+                } else {
+                    throw new Error('Server error');
+                }
+        } catch (error) {
+                alert(currentLang === 'en' ? 'Failed to send message.' : 'Неуспешно испраќање.');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        /*Stop loop of motorcycle pictures with a click, and continue with second click*/
+        document.querySelectorAll(".marquee-track").forEach(track => {
+            track.querySelectorAll(".marquee-item").forEach(item => {
+                item.addEventListener("click", function () {
+                    if (track.style.animationPlayState === "paused") {
+                        track.style.animationPlayState = "running";
+                    } else {
+                        track.style.animationPlayState = "paused";
+                    }
+                });
+            });
+        });
+
+
+        /*gallery*/
+         // Gallery Data
+            const galleryData = {
+                trips: [
+                    { src: 'trips/trips1.jpg', alt: 'Trip 1' },
+                    { src: 'trips/trips2.jpg', alt: 'Trip 2' },
+                    { src: 'trips/trips3.jpg', alt: 'Trip 3' },
+                    { src: 'trips/trips4.jpg', alt: 'Trip 4' },
+                    { src: 'trips/trips5.jpg', alt: 'Trip 5' },
+                    { src: 'trips/trips7.jpg', alt: 'Trip 6' },
+                    { src: 'trips/trips8.jpg', alt: 'Trip 7' },
+                    { src: 'trips/trips10.jpg', alt: 'Trip 8' },
+                    { src: 'trips/trips11.jpg', alt: 'Trip 9' },
+                    { src: 'trips/trips12.jpg', alt: 'Trip 10' },
+                    { src: 'trips/trips13.jpg', alt: 'Trip 11' },
+                    { src: 'trips/trips14.jpg', alt: 'Trip 12' },
+                    { src: 'trips/trips15.jpg', alt: 'Trip 13' },
+                    { src: 'trips/trips16.jpg', alt: 'Trip 14' },
+                    { src: 'trips/trips17.jpg', alt: 'Trip 15' },
+                    { src: 'trips/trips18.jpg', alt: 'Trip 16' },
+                    { src: 'trips/trips19.jpg', alt: 'Trip 17' },
+                    { src: 'trips/trips20.jpg', alt: 'Trip 18' },
+                    { src: 'trips/trips21.jpg', alt: 'Trip 19' },
+                    { src: 'trips/trips23.jpg', alt: 'Trip 20' },
+                    { src: 'trips/trips24.jpg', alt: 'Trip 21' },
+                    { src: 'trips/trips25.jpg', alt: 'Trip 22' },
+                    { src: 'trips/trips26.jpg', alt: 'Trip 23' },
+                    { src: 'trips/trips27.jpg', alt: 'Trip 24' },
+                    { src: 'trips/trips28.jpg', alt: 'Trip 25' },
+                    { src: 'trips/trips29.jpg', alt: 'Trip 26' },
+                    { src: 'trips/trips30.jpg', alt: 'Trip 27' },
+                    { src: 'trips/trips31.jpg', alt: 'Trip 28' },
+                    { src: 'trips/trips32.jpg', alt: 'Trip 29' },
+                ],
+                charity: [
+                    { src: 'donation/donation1.jpg', alt: 'Charity Ride 1' },
+                    { src: 'donation/donation2.jpg', alt: 'Charity Ride 2' },
+                    { src: 'donation/donation3.jpg', alt: 'Charity Ride 3' },
+
+                ],
+                blood: [
+                    { src: 'blood/blood2.jpg', alt: 'Blood Donation 1' },
+                    { src: 'blood/blood3.jpg', alt: 'Blood Donation 2' },
+                    { src: 'blood/blood5.jpg', alt: 'Blood Donation 3' },
+                    { src: 'blood/blood6.jpg', alt: 'Blood Donation 4' },
+                    { src: 'blood/blood8.jpg', alt: 'Blood Donation 5' },
+                    { src: 'blood/blood11.jpg', alt: 'Blood Donation 6' },
+                    { src: 'blood/blood12.jpg', alt: 'Blood Donation 7' },
+                    { src: 'blood/blood13.jpg', alt: 'Blood Donation 8' },
+                    { src: 'blood/blood14.jpg', alt: 'Blood Donation 9' },
+                    { src: 'blood/blood15.jpg', alt: 'Blood Donation 10' },
+                ]
+            };
+
+            let currentCategory = 'trips';
+            let currentIndex = 0;
+            let isDragging = false;
+            let startX = 0;
+            let currentX = 0;
+            let velocity = 0;
+            let animationFrame;
+
+            const track = document.getElementById('carouselTrack');
+            const container = document.getElementById('carouselContainer');
+
+       // Initialize Gallery - OPTIMIZED VERSION
+function initGallery(category) {
+    currentCategory = category;
+    currentIndex = 0;
+    const images = galleryData[category];
+    
+    // Show loading state immediately
+    track.innerHTML = '';
+    const loadingItem = document.createElement('div');
+    loadingItem.className = 'carousel-item active loading';
+    loadingItem.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--blood-red);font-family:Oswald;">LOADING...</div>';
+    track.appendChild(loadingItem);
+    
+    // Small delay to let UI render buttons first
+    setTimeout(() => {
+        track.innerHTML = '';
+        
+        // Load only first 5 images immediately
+        const initialBatch = images.slice(0, 5);
+        const restBatch = images.slice(5);
+        
+        // Create first 5 items
+        initialBatch.forEach((img, idx) => {
+            createCarouselItem(img, idx, images.length);
+        });
+        
+        updateCarousel();
+        
+        // Load remaining images in background
+        if (restBatch.length > 0) {
+            let loadedCount = 0;
+            restBatch.forEach((img, idx) => {
+                // Delay each image slightly to not overwhelm browser
+                setTimeout(() => {
+                    createCarouselItem(img, idx + 5, images.length);
+                    loadedCount++;
+                    // Update carousel positions as new items arrive
+                    if (loadedCount === restBatch.length) {
+                        updateCarousel();
+                    }
+                }, idx * 100); // 100ms delay between each
+            });
+        }
+    }, 50);
+}
+
+// Helper function to create carousel items
+function createCarouselItem(img, idx, total) {
+    const item = document.createElement('div');
+    item.className = 'carousel-item loading';
+    item.dataset.index = idx;
+    item.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+    item.addEventListener('click', () => goToSlide(idx));
+    
+    const image = item.querySelector('img');
+    image.onload = () => item.classList.remove('loading');
+    image.onerror = () => {
+        // If image fails to load, hide it
+        item.style.display = 'none';
+    };
+    
+    track.appendChild(item);
+}
+
+        // Update Carousel Positions
+// Update Carousel Positions
+function updateCarousel() {
+    const items = document.querySelectorAll('.carousel-item:not([style*="display: none"])');
+    const total = items.length;
+    
+    if (total === 0) return;
+    
+    items.forEach((item, idx) => {
+        // Remove all position classes
+        item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next', 'hidden');
+        
+        // Calculate relative position
+        const diff = idx - currentIndex;
+        
+        if (diff === 0) {
+            item.classList.add('active');
+        } else if (diff === -1 || (diff === total - 1 && total > 1)) {
+            item.classList.add('prev');
+        } else if (diff === 1 || (diff === -(total - 1) && total > 1)) {
+            item.classList.add('next');
+        } else if (diff === -2 || (diff === total - 2 && total > 2)) {
+            item.classList.add('far-prev');
+        } else if (diff === 2 || (diff === -(total - 2) && total > 2)) {
+            item.classList.add('far-next');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
+        // Navigation
+        function goToSlide(index) {
+            const items = document.querySelectorAll('.carousel-item');
+            currentIndex = (index + items.length) % items.length;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            const items = document.querySelectorAll('.carousel-item');
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            const items = document.querySelectorAll('.carousel-item');
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        }
+
+        // Event Listeners
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+
+        // Category Buttons
+        document.querySelectorAll('.gallery-categories button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+        // Get the actual button (not the span inside it)
+        const button = e.currentTarget;
+        
+        // Update active state
+        document.querySelectorAll('.gallery-categories button').forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+    
+        // Initialize new category
+        initGallery(button.dataset.category);
+    });
+});
+
+        // Touch/Drag Support
+        container.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            currentX = startX;
+            velocity = 0;
+            container.style.cursor = 'grabbing';
+            cancelAnimationFrame(animationFrame);
+        });
+
+        container.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+        
+            const dx = e.clientX - currentX;
+            velocity = dx;
+            currentX = e.clientX;
+        
+            // Add resistance to drag
+            const items = document.querySelectorAll('.carousel-item');
+            items.forEach(item => {
+            const currentTransform = getComputedStyle(item).transform;
+            // Optional: Add subtle drag effect here
+            });
+        });
+
+        container.addEventListener('pointerup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            container.style.cursor = 'grab';
+        
+            // Determine direction based on velocity
+            if (Math.abs(velocity) > 5) {
+                if (velocity > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            }
+        });
+
+        container.addEventListener('pointerleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            }
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        // Auto-rotate (optional)
+        let autoRotate = setInterval(nextSlide, 5000);
+    
+        container.addEventListener('mouseenter', () => clearInterval(autoRotate));
+        container.addEventListener('mouseleave', () => {
+            autoRotate = setInterval(nextSlide, 5000);
+        });
+
+        // Initialize
+        initGallery('trips');
+
+    </script>
+</body>
+</html>
