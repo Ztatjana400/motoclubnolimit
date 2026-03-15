@@ -85,7 +85,7 @@
             border: 2px solid var(--blood-red);
             color: var(--bone);
             padding: 8px 16px;
-            font-family: 'Oswald', sans-serif;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -128,19 +128,19 @@
 
         /* Navigation */
         nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;      
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
-    transition: all 0.4s ease;
-    box-sizing: border-box;
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;      
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+            transition: all 0.4s ease;
+            box-sizing: border-box;
+        }
 
         nav.scrolled {
             background: rgba(13, 13, 13, 0.95);
@@ -227,23 +227,23 @@
         }
 
         .mobile-menu-btn {
-    display: none;
-    background: rgba(13, 13, 13, 0.8);
-    border: 1px solid var(--blood-red);
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 10001;
-    border-radius: 4px;
-}
+            display: none;
+            background: rgba(13, 13, 13, 0.8);
+            border: 1px solid var(--blood-red);
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 10001;
+            border-radius: 4px;
+        }
 
-.mobile-menu-btn span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: var(--bone);
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--bone);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
         
 
         /* Hero Section with BADASS Parallax */
@@ -633,37 +633,37 @@
         }
 
         .marquee-item {
-    flex-shrink: 0;
-    width: 300px;
-    height: 200px;
-    margin: 0 10px;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(139, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    transform-origin: center center;
-}
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            margin: 0 10px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            transform-origin: center center;
+        }
 
-.marquee-item:hover {
-    border-color: var(--blood-red);
-    transform: scale(1.08);
-    z-index: 100;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+        .marquee-item:hover {
+            border-color: var(--blood-red);
+            transform: scale(1.08);
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-.marquee-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    transition: all 0.3s ease;
-    transform-origin: center center;
-}
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+            transform-origin: center center;
+        }
 
-.marquee-item:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.1);
-}
+        .marquee-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
 
         .marquee-item{
             cursor:pointer;
@@ -1870,7 +1870,7 @@
         }
 
         /* Extra Small Phones (Samsung Galaxy fold, small Androids) */
-    @media (max-width: 360px) {
+        @media (max-width: 360px) {
         body {
             overflow-x: hidden;
             width: 100%;
@@ -2801,31 +2801,40 @@
                     </div>
                 </div>
             </div>
-            
+
+<!--CONTACT FORM-->      
             <div class="contact-form fade-in">
-                <form id="contactForm" action="https://getform.io/f/l17rrl14dxv" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/xeerldql" method="POST">
+        
+                    <!-- Optional: Redirect after submission
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> -->
+        
                     <div class="form-group">
                         <label for="name" data-lang="en" class="active">Name</label>
                         <label for="name" data-lang="mk">Име</label>
                         <input type="text" id="name" name="name" required>
                     </div>
+        
                     <div class="form-group">
                         <label for="phone" data-lang="en" class="active">Mobile Number</label>
                         <label for="phone" data-lang="mk">Мобилен Број</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
+        
                     <div class="form-group">
                         <label for="bike" data-lang="en" class="active">Current Ride</label>
                         <label for="bike" data-lang="mk">Сегашен Мотор</label>
                         <input type="text" id="bike" name="bike" required>
                     </div>
+        
                     <div class="form-group">
                         <label for="message" data-lang="en" class="active">Message</label>
                         <label for="message" data-lang="mk">Порака</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
+        
                     <button type="submit" class="submit-btn">
-                        <span data-lang="en" class="active">Send Message</span>
+                       <span data-lang="en" class="active">Send Message</span>
                         <span data-lang="mk">Испрати Порака</span>
                     </button>
                 </form>
@@ -3060,61 +3069,92 @@
             }
         });
 
-        /*CONTACT FORM*/
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        /* CONTACT FORM */
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
     
-            const form = e.target;
-            const formData = new FormData(form);
-            const currentLang = localStorage.getItem('preferredLang') || 'en';
+    const form = e.target;
+    const formData = new FormData(form);
+    const currentLang = localStorage.getItem('preferredLang') || 'en';
     
-            try {
-                const response = await fetch(form.action, {
-                    method: "POST",
-                    body: formData
-                });
-        
-                if (response.ok) {
-                  
-                    const messages = {
-                        en: 'Message sent! We\'ll be in touch, prospect.',
-                        mk: 'Пораката е испратена! Ќе бидеме во контакт, кандидат.'
-                    };
-            
-                    const notification = document.createElement('div');
-                    notification.style.cssText = `
-                        position: fixed;
-                        top: 20px;
-                        right: 20px;
-                        background: var(--blood-red);
-                        color: white;
-                        padding: 1.5rem 2rem;
-                        border-radius: 4px;
-                        font-family: 'Oswald', sans-serif;
-                        font-weight: 600;
-                        z-index: 10001;
-                        transform: translateX(400px);
-                        transition: transform 0.4s ease;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-                        max-width: 300px;
-                    `;
-                    notification.textContent = messages[currentLang];
-                        document.body.appendChild(notification);
-            
-                    setTimeout(() => notification.style.transform = 'translateX(0)', 100);
-                    setTimeout(() => {
-                        notification.style.transform = 'translateX(400px)';
-                        setTimeout(() => notification.remove(), 400);
-                    }, 3000);
-            
-                    form.reset();
-                } else {
-                    throw new Error('Server error');
-                }
-        } catch (error) {
-                alert(currentLang === 'en' ? 'Failed to send message.' : 'Неуспешно испраќање.');
+    // Disable button during submission
+    const btn = form.querySelector('.submit-btn');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = currentLang === 'en' ? 'Sending...' : 'Испраќање...';
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             }
         });
+        
+        if (response.ok) {
+            // Success notification
+            showNotification(
+                currentLang === 'en' 
+                    ? 'Message sent! We\'ll be in touch, prospect.' 
+                    : 'Пораката е испратена! Ќе бидеме во контакт, кандидат.',
+                'success'
+            );
+            
+            form.reset();
+        } else {
+            throw new Error('Server error');
+        }
+        
+    } catch (error) {
+        showNotification(
+            currentLang === 'en' 
+                ? 'Failed to send message. Try again.' 
+                : 'Неуспешно испраќање. Обидете се повторно.',
+            'error'
+        );
+        
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    }
+});
+
+
+
+// Notification helper function
+function showNotification(message, type) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? 'var(--blood-red)' : '#dc3545'};
+        color: white;
+        padding: 1.5rem 2rem;
+        border-radius: 4px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        z-index: 10001;
+        transform: translateX(400px);
+        transition: transform 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        max-width: 300px;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Slide in
+    requestAnimationFrame(() => {
+        notification.style.transform = 'translateX(0)';
+    });
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => notification.remove(), 400);
+    }, 3000);
+}
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
