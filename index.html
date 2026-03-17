@@ -1144,6 +1144,224 @@
             }
         }
 
+              /* Sponsors Section */
+        .sponsors {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a0a0a 50%, #0d0d0d 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 5%;
+        }
+
+        .sponsors::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 69, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .sponsors-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* max width per card */
+           gap: 4rem;
+           max-width: 1000px; /* optional, limits the whole grid width */
+           margin: 0 auto;
+           position: relative;
+           z-index: 2;
+       }
+
+       .sponsor-card {
+           max-width: 400px; /* limits the card width */
+           margin: 0 auto; /* centers the card in the grid column */
+           background: rgba(26, 26, 26, 0.6);
+           border: 1px solid rgba(139, 0, 0, 0.3);
+           padding: 3rem;
+           text-align: center;
+           position: relative;
+           overflow: hidden;
+           transition: all 0.4s ease;
+           backdrop-filter: blur(10px);
+       }
+
+        .sponsor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .sponsor-card:hover::before {
+            left: 100%;
+        }
+
+        .sponsor-card:hover {
+            border-color: var(--blood-red);
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.5),
+                0 0 30px rgba(139, 0, 0, 0.2);
+        }
+
+        .sponsor-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border: 3px solid var(--blood-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-card:hover .sponsor-logo {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
+            border-color: var(--flame);
+        }
+
+        .sponsor-icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        .sponsor-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 10px rgba(139, 0, 0, 0.5));
+        }
+
+        .sponsor-name {
+            font-family: 'Metal Mania', cursive;
+            font-size: 2rem;
+            color: var(--bone);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+        }
+
+        .sponsor-type {
+            color: var(--blood-red);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .sponsor-desc {
+            color: rgba(229, 229, 229, 0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .sponsor-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 2px solid var(--blood-red);
+            color: var(--bone);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsor-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--blood-red);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .sponsor-link:hover::before {
+            left: 0;
+        }
+
+        .sponsor-link:hover {
+            color: var(--bone);
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .sponsor-card {
+                padding: 2rem;
+            }
+
+            .sponsor-name {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sponsor-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .sponsor-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .sponsor-name {
+                font-size: 1.4rem;
+            }
+        }
+
+        .sponsor-icon {
+           width: 100%;
+           height: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           overflow: hidden;
+       }
+
+       .sponsor-icon img:hover .sponsor-icon img{
+            transform: scale(1.15);
+       }
+
+       .sponsor-icon img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;  
+           border-radius: 50%;  
+           transition: transform 0.6s (0.25, 0.46, 0.45, 0.94);
+       }
+
+
         /* Gallery loading state */
         .carousel-item.loading {
             background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
@@ -2636,6 +2854,45 @@
                 <p class="member-role" data-lang="mk">Кандидат</p>
             </div>
         </div>
+    </section>
+
+     <!-- Official Sponsors Section -->
+    <section class="sponsors" id="sponsors">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Offcial Collaborator</span>
+                <span data-lang="mk">Официјален Соработник</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active"></span>
+                <span data-lang="mk"></span>
+            </p>
+        </div>
+
+          <!-- Pavilion 36 Pub Sponsor -->
+<div class="sponsor-card fade-in">
+    <div class="sponsor-logo pub-logo">
+        <div class="sponsor-icon">
+             <img src="pavilion36.png" alt="Pavilion 36 Pub Logo" width="120" height="120">
+        </div>
+    </div>
+    <h3 class="sponsor-name">
+    <span data-lang="en" class="active">Pavilion 36</span>
+    <span data-lang="mk">Павилjон 36</span>
+</h3>
+    <p class="sponsor-type">
+        <span data-lang="en" class="active">Beer Pub</span>
+        <span data-lang="mk">Пивница</span>
+    </p>
+    <p class="sponsor-desc">
+        <span data-lang="en" class="active">Good vibe, rocking tunes and cold beer for every moment.</span>
+        <span data-lang="mk">Добра енергија, рок ритам и ладно пиво за секој момент.</span>
+    </p>
+    <a href="https://www.instagram.com/paviljon36?igsh=ZHBhenh6c3lkdmZh" target="_blank" rel="noopener noreferrer" class="sponsor-link">
+        <span data-lang="en" class="active">Find Us</span>
+        <span data-lang="mk">Најди Нè</span>
+    </a>
+</div>
     </section>
 
     <!-- Humanitarian Section -->
