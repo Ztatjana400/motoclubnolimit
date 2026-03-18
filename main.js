@@ -1,5 +1,4 @@
-
- // Language Switch Function
+// Language Switch Function
         function switchLang(lang) {
         // Update language button active state
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
