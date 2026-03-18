@@ -1,3 +1,4 @@
+
  // Language Switch Function
         function switchLang(lang) {
         // Update language button active state
