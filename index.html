@@ -9,15 +9,28 @@
     <meta name="author" content="Moto Club No Limit MK">
     <meta name="robots" content="index, follow">
     
-    <!-- Canonical URL (prevents duplicate content issues) -->
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://motoclubnolimit.org/">
     
-    <!-- Open Graph (for social sharing & Google rich results) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Moto Club No Limit">
     <meta property="og:description" content="Macedonia's premier motorcycle community. Join epic rides and events.">
     <meta property="og:image" content="https://motoclubnolimit.org/assets/NO_LIMIT_BACK.png">
     <meta property="og:url" content="https://motoclubnolimit.org/">
     <meta property="og:type" content="website">
+
+    <!-- Structured Data - JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Moto Club No Limit",
+      "alternateName": "NO LIMIT",
+      "url": "https://motoclubnolimit.org",
+      "logo": "https://motoclubnolimit.org/assets/NO_LIMIT_BACK.png",
+      "description": "Macedonia's premier motorcycle community for rides and events."
+    }
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QSVESCW6D"></script>
@@ -25,7 +38,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-2QSVESCW6D');
     </script>
 
