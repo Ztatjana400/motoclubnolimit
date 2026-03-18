@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NO LIMIT | Moto Club MK</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QSVESCW6D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2QSVESCW6D');
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Rajdhani:wght@400;500;600;700&family=Metal+Mania&family=Inter:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" onclick="switchLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="switchLang('mk')" id="btn-mk">MK</button>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text active" data-lang="en">LOADING...</div>
+            <div data-lang="mk">ВЧИТУВАЊЕ...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-img">
+                <img src="assets/logo.png" alt="No Limit MC Logo">
+            </div>
+            <span>Moto Club No Limit</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li>
+                <a href="#home" data-lang="en" class="active">Home</a>
+                <a href="#home" data-lang="mk">Дома</a>
+            </li>
+            <li>
+                <a href="#about" data-lang="en" class="active">About</a>
+                <a href="#about" data-lang="mk">За Нас</a>
+            </li>
+            <li>
+                <a href="#rides" data-lang="en" class="active">Rides</a>
+                <a href="#rides" data-lang="mk">Мотори</a>
+            </li>
+            <li>
+                <a href="#members" data-lang="en" class="active">Crew</a>
+                <a href="#members" data-lang="mk">Екипа</a>
+            </li>
+            <li>
+                <a href="#humanitarian" data-lang="en" class="active">Charity</a>
+                <a href="#humanitarian" data-lang="mk">Хуманост</a>
+            </li>
+            <li>
+                <a href="#gallery" data-lang="en" class="active">Gallery</a>
+                <a href="#gallery" data-lang="mk">Галерија</a>
+            </li>
+            <li>
+               <a href="#contact" data-lang="en" class="active">Contact</a>
+            <a href="#contact" data-lang="mk">Контакт</a>
+            </li>
+        </ul>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section - Parallax -->
+    <section class="hero" id="home">
+        <div class="hero-parallax-container" id="parallaxContainer">
+            <div class="hero-bg" id="parallaxBg"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <img src="assets/NO_LIMIT_BACK.png" alt="Club Logo">
+            </div>
+            <h1>
+                <span data-lang="en" class="active">No Limit</span>
+                <span data-lang="mk">No Limit</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span data-lang="en" class="active">Ride with Honor. Ride with Pride.</span>
+                <span data-lang="mk">Возете co Чест. Возете co Гордост.</span>
+            </p>
+            <p class="hero-text">
+                <span data-lang="en" class="active">Riding has always been in our blood. 
+                                                    The club may have started in 2019, but 
+                                                    the road has shaped us for a lifetime.</span>
+                <span data-lang="mk">Возењето отсекогаш било во нашата крв. Клубот можеби започна во 2019, 
+                                     но патот нè обликуваше цел живот.</span>
+            </p>
+            <a href="#contact" class="cta-button">
+                <span data-lang="en" class="active">Join The Pack</span>
+                <span data-lang="mk">Приклучи ce</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Our Legacy</span>
+                <span data-lang="mk">Нашето Наследство</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">Built on respect, honor, and the open road</span>
+                <span data-lang="mk">Изградено врз почит, чест и отворен пат</span>
+            </p>
+        </div>
+        <div class="about-grid">
+            <div class="about-content fade-in">
+                <h3>
+                    <span data-lang="en" class="active">Freedom Found on two wheels</span>
+                    <span data-lang="mk">Слобода пронајдена на две тркала</span>
+                </h3>
+                <p data-lang="en" class="active">
+                    No Limit was founded in 2019 by riders who shared a vision of creating something more than just a motorcycle club. We wanted to build a brotherhood where respect, loyalty, and the love of riding come first.
+                </p>
+                <p data-lang="mk">
+                    Но Лимит е основан во 2019 од возачи кои споделуваа визија за создавање на нешто повеќе од само мото клуб. Сакавме да изградиме братство каде почитта, лојалноста и љубовта кон возењето се на прво место.
+                </p><br><br>
+                <p data-lang="en" class="active">
+                    Every ride is an adventure, every member is family. We don't just ride together—we grow together, support each other, and create memories that last a lifetime.
+                </p>
+                <p data-lang="mk">
+                    Секое возење e авантура, секој член e семејство. Ние не само што возиме заедно—туку растеме заедно, се поддржуваме и создаваме спомени кои траат цел живот.
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label" data-lang="en" class="active">Years Riding Together</span>
+                        <span class="stat-label" data-lang="mk">Години Заедно Возење</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20</span>
+                        <span class="stat-label" data-lang="en" class="active">Members</span>
+                        <span class="stat-label" data-lang="mk">Членови</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label" data-lang="en" class="active">Kilometers Ridden</span>
+                        <span class="stat-label" data-lang="mk">Извозени Километри</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image fade-in">
+                <img src="assets/moto_group.jpg" alt="Motorcycle Club">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rides Section - INFINITE MARQUEE -->
+    <section class="rides" id="rides">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">The Machines</span>
+                <span data-lang="mk">Нашите Мотори</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">Build for freedom</span>
+                <span data-lang="mk">Создадени за слобода</span>
+            </p>
+        </div>
+        
+        <!-- First Marquee: Left to Right -->
+        <div class="marquee-container fade-in">
+            <div class="marquee-track" id="marquee1">
+                <!-- 25 items duplicated - seamless loop -->
+                <div class="marquee-item"><img src="bike/1.jpg" alt="Bike 1"><div class="marquee-info"><h4>BMW R1200 GS / KTM 1290 Super Adventure / Suzuki V-Strom 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/2.jpg" alt="Bike 2"><div class="marquee-info"><h4>Suzuki V-Strom 1000 / KTM 1290 Super Adventure / Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/3.jpg" alt="Bike 3"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/4.jpg" alt="Bike 4"><div class="marquee-info"><h4>BMW R1200GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/5.jpg" alt="Bike 5"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/51.jpg" alt="Bike 6"><div class="marquee-info"><h4>BMW F800R</h4></div></div>
+                <div class="marquee-item"><img src="bike/7.jpg" alt="Bike 7"><div class="marquee-info"><h4>Kawasaki Versys 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/8.jpg" alt="Bike 8"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/9.jpg" alt="Bike 9"><div class="marquee-info"><h4>Yamaha FZ6</h4></div></div>
+                <div class="marquee-item"><img src="bike/10.jpg" alt="Bike 10"><div class="marquee-info"><h4>BMW 1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/11.jpg" alt="Bike 11"><div class="marquee-info"><h4>Honda VFR800F</h4></div></div>
+                <div class="marquee-item"><img src="bike/12.jpg" alt="Bike 12"><div class="marquee-info"><h4>Suzuki DL V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/13.jpg" alt="Bike 13"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+                <div class="marquee-item"><img src="bike/14.jpg" alt="Bike 14"><div class="marquee-info"><h4>Ducati Multistrada V2</h4></div></div>
+                <div class="marquee-item"><img src="bike/15.jpg" alt="Bike 15"><div class="marquee-info"><h4>KTM 1290 Super Adventure</h4></div></div>
+                <div class="marquee-item"><img src="bike/16.jpg" alt="Bike 16"><div class="marquee-info"><h4>Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/17.jpg" alt="Bike 17"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/18.jpg" alt="Bike 18"><div class="marquee-info"><h4>Yamaha XT660Z Tenere</h4></div></div>
+                <div class="marquee-item"><img src="bike/19.jpg" alt="Bike 19"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/20.jpg" alt="Bike 20"><div class="marquee-info"><h4>Benelli TRK 502X</h4></div></div>
+                <div class="marquee-item"><img src="bike/21.jpg" alt="Bike 21"><div class="marquee-info"><h4>BMW R1250RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/22.jpg" alt="Bike 22"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/23.jpg" alt="Bike 23"><div class="marquee-info"><h4>Yamaha FJR1300</h4></div></div>
+                <div class="marquee-item"><img src="bike/24.jpg" alt="Bike 24"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/25.jpg" alt="Bike 25"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+                <!-- Duplicate - seamless loop -->
+                <div class="marquee-item"><img src="bike/1.jpg" alt="Bike 1"><div class="marquee-info"><h4>BMW R1200 GS / KTM 1290 Super Adventure / Suzuki V-Strom 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/2.jpg" alt="Bike 2"><div class="marquee-info"><h4>Suzuki V-Strom 1000 / KTM 1290 Super Adventure / Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/3.jpg" alt="Bike 3"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/4.jpg" alt="Bike 4"><div class="marquee-info"><h4>BMW R1200GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/5.jpg" alt="Bike 5"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/51.jpg" alt="Bike 6"><div class="marquee-info"><h4>BMW F800R</h4></div></div>
+                <div class="marquee-item"><img src="bike/7.jpg" alt="Bike 7"><div class="marquee-info"><h4>Kawasaki Versys 1000</h4></div></div>
+                <div class="marquee-item"><img src="bike/8.jpg" alt="Bike 8"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/9.jpg" alt="Bike 9"><div class="marquee-info"><h4>Yamaha FZ6</h4></div></div>
+                <div class="marquee-item"><img src="bike/10.jpg" alt="Bike 10"><div class="marquee-info"><h4>BMW 1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/11.jpg" alt="Bike 11"><div class="marquee-info"><h4>Honda VFR800F</h4></div></div>
+                <div class="marquee-item"><img src="bike/12.jpg" alt="Bike 12"><div class="marquee-info"><h4>Suzuki DL V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/13.jpg" alt="Bike 13"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+                <div class="marquee-item"><img src="bike/14.jpg" alt="Bike 14"><div class="marquee-info"><h4>Ducati Multistrada V2</h4></div></div>
+                <div class="marquee-item"><img src="bike/15.jpg" alt="Bike 15"><div class="marquee-info"><h4>KTM 1290 Super Adventure</h4></div></div>
+                <div class="marquee-item"><img src="bike/16.jpg" alt="Bike 16"><div class="marquee-info"><h4>Suzuki V-Strom 650</h4></div></div>
+                <div class="marquee-item"><img src="bike/17.jpg" alt="Bike 17"><div class="marquee-info"><h4>BMW R1200RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/18.jpg" alt="Bike 18"><div class="marquee-info"><h4>Yamaha XT660Z Tenere</h4></div></div>
+                <div class="marquee-item"><img src="bike/19.jpg" alt="Bike 19"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/20.jpg" alt="Bike 20"><div class="marquee-info"><h4>Benelli TRK 502X</h4></div></div>
+                <div class="marquee-item"><img src="bike/21.jpg" alt="Bike 21"><div class="marquee-info"><h4>BMW R1250RT</h4></div></div>
+                <div class="marquee-item"><img src="bike/22.jpg" alt="Bike 22"><div class="marquee-info"><h4>Kawasaki ER-5</h4></div></div>
+                <div class="marquee-item"><img src="bike/23.jpg" alt="Bike 23"><div class="marquee-info"><h4>Yamaha FJR1300</h4></div></div>
+                <div class="marquee-item"><img src="bike/24.jpg" alt="Bike 24"><div class="marquee-info"><h4>BMW F750 GS</h4></div></div>
+                <div class="marquee-item"><img src="bike/25.jpg" alt="Bike 25"><div class="marquee-info"><h4>Kawasaki Z400</h4></div></div>
+            </div>
+        </div>
+
+        <!-- Second Marquee: Right to Left -->
+        <div class="marquee-container fade-in">
+            <div class="marquee-track reverse" id="marquee2">
+                <!-- 25 items duplicated - seamless loop -->
+                <div class="marquee-item"><img src="bike/26.jpg" alt="Bike 26"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/27.jpg" alt="Bike 27"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/28.jpg" alt="Bike 28"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/29.jpg" alt="Bike 29"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/30.jpg" alt="Bike 30"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/31.jpg" alt="Bike 31"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/32.jpg" alt="Bike 32"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/33.jpg" alt="Bike 33"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/34.jpg" alt="Bike 34"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/35.jpg" alt="Bike 35"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/36.jpg" alt="Bike 36"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/37.jpg" alt="Bike 37"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/38.jpg" alt="Bike 38"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/39.jpg" alt="Bike 39"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/40.jpg" alt="Bike 40"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/41.jpg" alt="Bike 41"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/42.jpg" alt="Bike 42"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/43.jpg" alt="Bike 43"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/44.jpg" alt="Bike 44"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/45.jpg" alt="Bike 45"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/46.jpg" alt="Bike 46"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/47.jpg" alt="Bike 47"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/48.jpg" alt="Bike 48"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/49.jpg" alt="Bike 49"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/50.jpg" alt="Bike 50"><div class="marquee-info"><h4></h4></div></div>
+                <!-- Duplicate - seamless loop -->
+                 <div class="marquee-item"><img src="bike/26.jpg" alt="Bike 26"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/27.jpg" alt="Bike 27"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/28.jpg" alt="Bike 28"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/29.jpg" alt="Bike 29"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/30.jpg" alt="Bike 30"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/31.jpg" alt="Bike 31"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/32.jpg" alt="Bike 32"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/33.jpg" alt="Bike 33"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/34.jpg" alt="Bike 34"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/35.jpg" alt="Bike 35"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/36.jpg" alt="Bike 36"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/37.jpg" alt="Bike 37"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/38.jpg" alt="Bike 38"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/39.jpg" alt="Bike 39"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/40.jpg" alt="Bike 40"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/41.jpg" alt="Bike 41"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/42.jpg" alt="Bike 42"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/43.jpg" alt="Bike 43"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/44.jpg" alt="Bike 44"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/45.jpg" alt="Bike 45"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/46.jpg" alt="Bike 46"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/47.jpg" alt="Bike 47"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/48.jpg" alt="Bike 48"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/49.jpg" alt="Bike 49"><div class="marquee-info"><h4></h4></div></div>
+                <div class="marquee-item"><img src="bike/50.jpg" alt="Bike 50"><div class="marquee-info"><h4></h4></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section class="members" id="members">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">The Crew</span>
+                <span data-lang="mk">Екипата</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">A Brotherhood of Riders</span>
+                <span data-lang="mk">Братство на моторџии</span>
+            </p>
+        </div>
+        <div class="members-grid">
+            <!-- Darko - President -->
+             <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/darko.jpg" alt="Darko"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Darko</span><br>
+                <span data-lang="mk" class="name">Дарко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="assets/president.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Icko - Vice President -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/icko.jpg" alt="Icko"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Icko</span><br>
+                <span data-lang="mk" class="name">Ицко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="assets/vice_president.png" 
+                     alt="Honorary Member" 
+                     class="vice_president"
+                     data-lang="en">
+            </div>
+
+            <!-- Zarko - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/zarko.jpg" alt="Zarko"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Zarko</span><br>
+                <span data-lang="mk" class="name">Жарко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="assets/honor.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Kokan - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kokan.jpg" alt="Kokan"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Kokan</span><br>
+                <span data-lang="mk" class="name">Кокан</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="assets/honor.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Vasko - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/vasko.jpg" alt="Vasko"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Vasko</span><br>
+                <span data-lang="mk" class="name">Васко</span>
+
+                <p class="member-role active" data-lang="en">Full Patch</p> <br>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+                <img src="assets/honor.png" 
+                     alt="Honorary Member" 
+                     class="honor-badge active"
+                     data-lang="en">
+            </div>
+
+            <!-- Zoran - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/zoran.jpg" alt="Zoran"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Zoran</span>
+                <span data-lang="mk" class="name">Зоран</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Tatjana A. - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/tatjana_a.jpg" alt="Tatjana A."></div>
+                
+                <span data-lang="en" class="active name">Tanja</span>
+                <span data-lang="mk" class="name">Тања</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Sasho - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/sasho.jpg" alt="Sasho"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Sasho</span>
+                <span data-lang="mk" class="name">Сашо</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Tatjana M. - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/tatjana_m.jpg" alt="Tatjana M."></div>
+                
+                <span data-lang="en" class="active name">Tatjana</span>
+                <span data-lang="mk" class="name">Татјана</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Dime - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/dime.jpg" alt="Dime"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Dime</span>
+                <span data-lang="mk" class="name">Диме</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Bojan - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/bojan.jpg" alt="Bojan"></div>
+                
+                <span data-lang="en" class="active name">Bojan</span>
+                <span data-lang="mk" class="name">Бојан</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Kiko - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kiko.jpg" alt="Kiko"></div>
+                
+                <span data-lang="en" class="active name">Kiko</span>
+                <span data-lang="mk" class="name">Кико</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Kester - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kester.jpg" alt="Kester"></div>
+                
+                <span data-lang="en" class="active name">Kester</span>
+                <span data-lang="mk" class="name">Кестер</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Zone - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/zone.jpg" alt="Zone"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Zone</span>
+                <span data-lang="mk" class="name">Ѕоне</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Bobi - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/bobi.jpg" alt="Bobi"></div>
+                
+                <span data-lang="en" class="active name">Bobi</span>
+                <span data-lang="mk" class="name">Боби</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Trim - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/trim.jpg" alt="Trim"></div>
+
+                <span data-lang="en" class="active name">Trim</span>
+                <span data-lang="mk" class="name">Трим</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Ivo - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/ivo.jpg" alt="Ivo"></div>
+                
+                <span data-lang="en" class="active name">Ivo</span>
+                <span data-lang="mk" class="name">Иво</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Kristijan - Full Patch -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/kristijan.jpg" alt="Kristijan"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Kristijan</span>
+                <span data-lang="mk" class="name">Кристијан</span><br>
+
+                <p class="member-role active" data-lang="en">Full Patch</p>
+                <p class="member-role" data-lang="mk">Полноправен Член</p> <br>
+            </div>
+
+            <!-- Emanuel - Prospect -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/emanuel.jpg" alt="Emanuel"></div>
+                
+                <span data-lang="en" class="active name">Emanuel</span>
+                <span data-lang="mk" class="name">Емануел</span><br>
+
+                <p class="member-role active" data-lang="en">Candidate</p>
+                <p class="member-role" data-lang="mk">Кандидат</p>
+            </div>
+
+            <!-- Martin - Prospect -->
+            <div class="member-card fade-in">
+                <div class="member-avatar"><img src="members/martin.jpg" alt="Martin"></div>
+                <img src="assets/blood.avif" alt="Honorary Member" class="avatar-blood">
+                
+                <span data-lang="en" class="active name">Martin</span>
+                <span data-lang="mk" class="name">Мартин</span><br>
+
+                <p class="member-role active" data-lang="en">Candidate</p>
+                <p class="member-role" data-lang="mk">Кандидат</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- Official Sponsors Section -->
+    <section class="sponsors" id="sponsors">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Official Collaborator</span>
+                <span data-lang="mk">Официјален Соработник</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active"></span>
+                <span data-lang="mk"></span>
+            </p>
+        </div>
+
+          <!-- Pavilion 36 Pub Sponsor -->
+<div class="sponsor-card fade-in">
+    <div class="sponsor-logo pub-logo">
+        <div class="sponsor-icon">
+             <img src="assets/pavilion36.png" alt="Pavilion 36 Pub Logo" width="120" height="120">
+        </div>
+    </div>
+    <h3 class="sponsor-name">
+    <span data-lang="en" class="active">Павилjон 36</span>
+    <span data-lang="mk">Павилjон 36</span>
+</h3>
+    <p class="sponsor-type">
+        <span data-lang="en" class="active">Beer Pub</span>
+        <span data-lang="mk">Пивница</span>
+    </p>
+    <p class="sponsor-desc">
+        <span data-lang="en" class="active">Good vibe, rocking tunes and cold beer.</span>
+        <span data-lang="mk">Добра енергија, рок ритам и ладно пиво.</span>
+    </p>
+    <a href="https://www.instagram.com/paviljon36?igsh=ZHBhenh6c3lkdmZh" target="_blank" rel="noopener noreferrer" class="sponsor-link">
+        <span data-lang="en" class="active">Find Us</span>
+        <span data-lang="mk">Најди Нè</span>
+    </a>
+</div>
+    </section>
+
+    <!-- Humanitarian Section -->
+    <section class="humanitarian" id="humanitarian">
+        <div class="section-header fade-in">
+            
+            <h2>
+                <span data-lang="en" class="active">Humanitary Actions</span>
+                <span data-lang="mk">Хуманитарни Акции</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">We believe in using our passion to make a difference.</span>
+                <span data-lang="mk">Веруваме во користење на нашата страст за да направиме разлика.</span>
+            </p>
+        </div>
+
+        <div class="humanitarian-grid">
+            <div class="humanitarian-card fade-in">
+                <span class="humanitarian-icon">🩸</span>
+                <h3>
+                    <span data-lang="en" class="active">Blood Donations</span>
+                    <span data-lang="mk">Крводарителски Акции</span>
+                </h3>
+                <p>
+                    <span data-lang="en" class="active">Regular organized blood donation drives. Our members donate blood to support local hospitals and save lives in our community.</span>
+                    <span data-lang="mk">Редовни организирани акции за донација на крв. Нашите членови донираат крв за поддршка на локалните болници и спасување животи во нашата заедница.</span>
+                </p>
+                <div class="humanitarian-stat">
+                    <span class="number">220+</span>
+                    <span class="label">
+                        <span data-lang="en" class="active">blood donations</span>
+                        <span data-lang="mk">донации на крв</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="humanitarian-card fade-in">
+                <span class="humanitarian-icon">🤝</span>
+                <h3>
+                    <span data-lang="en" class="active">Charity Donations</span>
+                    <span data-lang="mk">Хуманитарни Донации</span>
+                </h3>
+                <p>
+                    <span data-lang="en" class="active">Supporting families in need, organizing charity rides, and helping local communities.</span>
+                    <span data-lang="mk">Поддршка и донации на семејства од ранлива категорија, организирани хуманитарни возења и помош на локалните заедници.</span>
+                </p>
+
+                <div class="humanitarian-stat">
+                    <span class="number">15+</span>
+                    <span class="label">
+                        <span data-lang="en" class="active">Charity Donations</span>
+                        <span data-lang="mk">15+ Хуманитарни Донации</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="humanitarian-card fade-in">
+                <span class="humanitarian-icon">🏍️</span>
+                <h3>
+                    <span data-lang="en" class="active">Road Safety</span>
+                    <span data-lang="mk">Безбедност на Патот</span>
+                </h3>
+                <p>
+                    <span data-lang="en" class="active">Safety isn't optional. Every ride, every kilometer, we gear up and stay sharp. Sharing knowledge, preventing accidents.</span>
+                    <span data-lang="mk">Безбедноста не e избор. Секое возење, секој километар, сме co опрема и будни. Споделувај знаење, спречи несреќа.</span>
+                </p>
+                <div class="humanitarian-stat">
+                    <span class="number">24/7</span>   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAM Association Section -->
+    <section class="association" id="association">
+        <div class="association-content fade-in">
+            <div class="mam-logo">
+                <img src="assets/mam.png" alt="MAM Moto Asocijacija na Makedonija">
+            </div>
+            <h3>
+                <span data-lang="en" class="active">Proud Members of MAM</span>
+                <span data-lang="mk">Горди Членови на MAM</span>
+            </h3>
+            <p data-lang="en" class="active">
+                No Limit members are officially registered with the (MAM) Moto Asocijacija na Makedonija, the governing body for motorcycle clubs in Macedonia.
+            </p>
+            <p data-lang="mk">
+                Но Лимит членовите се официјално регистрирани во (МАМ) Мото Асоцијација на Македонија, управно тело за мото-клубови во Македонија.
+            </p>
+        </div>
+    </section>
+
+    <!------GALLERY----------------------------------------------------------------->
+    <section class="gallery" id="gallery">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Gallery</span>
+                <span data-lang="mk">Gallery</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">See the world through our lens</span>
+                <span data-lang="mk">Погледни го светот низ нашите очи</span>
+            </p>
+        </div>
+        
+        <!-- Category buttons -->
+        <div class="gallery-categories">
+            <button data-category="trips">
+                <span data-lang="en">Trips</span>
+                <span data-lang="mk">Патувања</span>
+            </button>
+
+            <button data-category="charity">
+                <span data-lang="en">Charity Rides</span>
+                <span data-lang="mk">Хуманитарни возења</span>
+            </button>
+
+            <button data-category="blood">
+                <span data-lang="en">Blood donations</span>
+                <span data-lang="mk">Крводарителски акции</span>
+            </button>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-container" id="carouselContainer">
+                <div class="carousel-track" id="carouselTrack">
+                    <!--  JavaScript here -->
+                </div>
+        
+                <div class="carousel-nav">
+                    <button class="nav-btn prev" id="prevBtn">&#10094;</button>
+                    <button class="nav-btn next" id="nextBtn">&#10095;</button>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header fade-in">
+            <h2>
+                <span data-lang="en" class="active">Join The Brotherhood</span>
+                <span data-lang="mk">Приклучи се на Братството</span>
+            </h2>
+            <p>
+                <span data-lang="en" class="active">Candidates welcome. Wannabes need not apply.</span>
+                <span data-lang="mk">Кандидати добредојдени. Желбари не треба да аплицираат.</span>
+            </p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>
+                    <span data-lang="en" class="active">Get In Touch</span>
+                    <span data-lang="mk">Контактирај нè</span>
+                </h3>
+                <p data-lang="en" class="active">
+                    Interested in becoming a candidate? Want to collaborate on an event? Drop us a line.
+                </p>
+                <p data-lang="mk">
+                    Заинтересирани да станете кандидат? Сакате да соработувате на настан? Испратете ни порака.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Skopje, Macedonia</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>motoclubnolimit@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+389 70 274 911</span>
+                    </div>
+                </div>
+            </div>
+
+<!--CONTACT FORM-->      
+            <div class="contact-form fade-in">
+                <form id="contactForm" action="https://formspree.io/f/xeerldql" method="POST">
+        
+                    <!-- Optional: Redirect after submission
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> -->
+        
+                    <div class="form-group">
+                        <label for="name" data-lang="en" class="active">Name</label>
+                        <label for="name" data-lang="mk">Име</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="phone" data-lang="en" class="active">Mobile Number</label>
+                        <label for="phone" data-lang="mk">Мобилен Број</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="bike" data-lang="en" class="active">Current Ride</label>
+                        <label for="bike" data-lang="mk">Сегашен Мотор</label>
+                        <input type="text" id="bike" name="bike" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="message" data-lang="en" class="active">Message</label>
+                        <label for="message" data-lang="mk">Порака</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+        
+                    <button type="submit" class="submit-btn">
+                       <span data-lang="en" class="active">Send Message</span>
+                        <span data-lang="mk">Испрати Порака</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>No Limit MK</h4>
+
+                <div class="social-links">
+                    <a href="https://facebook.com/profile.php?id=100064473259948" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/moto_club_no_limit?igsh=NWhwdGo0a3liMzE5" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/@mknolimit?si=9I44eUSFhJjZgKFn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4 data-lang="en" class="active">Quick Links</h4>
+                <h4 data-lang="mk">Брзи Линкови</h4>
+                <br><br>
+                <p><a href="#about" data-lang="en" class="active">About Us</a> <a href="#about" data-lang="mk">Зa Hac</a></p>
+                <p><a href="#rides" data-lang="en" class="active">Our Bikes</a> <a href="#rides" data-lang="mk">Нашите Мотори</a></p>
+                <p><a href="#humanitarian" data-lang="en" class="active">Charity</a> <a href="#humanitarian" data-lang="mk">Хуманост</a></p>
+                <p><a href="#gallery" data-lang="en" class="active">Gallery</a> <a href="#gallery" data-lang="mk">Галерија</a></p>
+            </div>
+            <div class="footer-section">
+                <h4 data-lang="en" class="active">Clubhouse</h4>
+                <h4 data-lang="mk">Клуб</h4>
+                <p data-lang="en" class="active"><br><br>
+                    Open 6PM - Late<br>
+                    Members Only
+                </p>
+                <br><br>
+                <p data-lang="mk">
+                    Отворено 18:00 - Доцна<br>
+                    Само за Членови
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 data-lang="en" class="active">Support</h4>
+                <h4 data-lang="mk">Поддршка</h4>
+                <p data-lang="en" class="active"><br><br>
+                    MAM - Moto Asociation of Macedonia<br>
+                    Blood Donation Center<br>
+                    Local Food 
+                </p>
+                <br><br>
+                <p data-lang="mk">
+                    МАМ - Мото Асоцијација на Македонија<br>
+                    Центар за Донирање Крв<br>
+                    Локална Храна
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 No Limit MK.
+                <span data-lang="en" class="active">All rights reserved.</span>
+                <span data-lang="mk">Сите права задржани.</span>
+                <span> | </span>
+                <span data-lang="en" class="active">Ride with Honor. Ride with Pride.</span>
+                <span data-lang="mk">Вози со Чест. Вози со Гордост.</span>
+            </p>
+        </div>
+    </footer>
+<!--Java script-->
+    <script src="main.js"></script>
+</body>
+</html>
