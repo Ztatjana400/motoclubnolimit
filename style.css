@@ -199,8 +199,8 @@ footer{background:#050505;padding:4rem 5% 2rem;border-top:3px solid var(--blood-
 .social-links a:hover svg{fill:white;transform:scale(1.1)}
 .footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid rgba(139,0,0,0.2);font-size:0.9rem}
 .footer-bottom span{color:rgba(229,229,229,0.4)}
-.footer-bottom a{color: rgba(229,229,229,0.4);text-decoration: underline;transition: color 0.3s ease;}
-.footer-bottom a:hover {color: var(--blood-red);}
+.footer-bottom a{color:rgba(229,229,229,0.4);text-decoration: underline;transition: color 0.3s ease;}
+.footer-bottom a:hover {color:var(--blood-red);}
 
 /* Animations */
 .fade-in{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
