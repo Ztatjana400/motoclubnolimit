@@ -70,7 +70,7 @@ const bikeData = [
     { src: 'bike/13.webp', title: 'Kawasaki Z400' },
     { src: 'bike/14.webp', title: 'Ducati Multistrada V2' },
     { src: 'bike/15.webp', title: 'KTM 1290 Super Adventure' },
-    { src: 'bike/16.jwebp', title: 'Suzuki V-Strom 650' },
+    { src: 'bike/16.webp', title: 'Suzuki V-Strom 650' },
     { src: 'bike/17.webp', title: 'BMW R1200RT' },
     { src: 'bike/18.webp', title: 'Yamaha XT660Z Tenere' },
     { src: 'bike/19.webp', title: 'Kawasaki ER-5' },
