@@ -169,7 +169,9 @@ section{padding:6rem 5%;position:relative}
 .contact-info h3{font-family:'Oswald',sans-serif;font-size:1.8rem;color:var(--blood-red);margin-bottom:1.5rem}
 .contact-info p{margin-bottom:2rem;line-height:1.8;color:rgba(229,229,229,0.8);font-size:1rem}
 .contact-details{display:flex;flex-direction:column;gap:1.5rem}
-.contact-item{display:flex;align-items:center;gap:1rem;font-size:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;font-size:1rem;color: #8B0000;text-decoration: none;}
+.contact-item a {color: #8B0000;text-decoration: none;}
+.contact-item a:hover {color: #A00000;text-decoration: none;}
 .contact-item span:first-child{width:40px;height:40px;background:rgba(139,0,0,0.2);border:1px solid var(--blood-red);display:flex;align-items:center;justify-content:center;color:var(--blood-red);font-size:1.2rem;flex-shrink:0}
 .contact-form{background:rgba(0,0,0,0.3);padding:2.5rem;border:1px solid rgba(139,0,0,0.2)}
 .form-group{margin-bottom:1.5rem}
