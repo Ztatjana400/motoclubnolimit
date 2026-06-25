@@ -360,3 +360,193 @@ input, textarea {
 .lightbox-overlay {
     pointer-events: auto;
 }
+
+
+.brotherhood {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #0f0f0f 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 5%;
+}
+
+.brotherhood::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.brotherhood-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.brotherhood-card {
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.brotherhood-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.brotherhood-card:hover::before {
+    left: 100%;
+}
+
+.brotherhood-card:hover {
+    border-color: var(--blood-red);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(139, 0, 0, 0.2);
+}
+
+.brotherhood-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--blood-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+    transition: all 0.4s ease;
+}
+
+.brotherhood-card:hover .brotherhood-logo {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
+    border-color: var(--flame);
+}
+
+.brotherhood-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.brotherhood-logo:hover img {
+    transform: scale(1.15);
+}
+
+.brotherhood-name {
+    font-family: 'Metal Mania', cursive;
+    font-size: 2.5rem;
+    color: var(--bone);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+}
+
+.brotherhood-label {
+    color: var(--blood-red);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    display: block;
+}
+
+.brotherhood-desc {
+    color: rgba(229, 229, 229, 0.8);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.brotherhood-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.brotherhood-socials a {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.brotherhood-socials a svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--bone);
+    transition: all 0.3s ease;
+}
+
+.brotherhood-socials a:hover {
+    background: var(--blood-red);
+    border-color: var(--blood-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+}
+
+.brotherhood-socials a:hover svg {
+    fill: white;
+    transform: scale(1.1);
+}
+
+/* Brotherhood responsive */
+@media (max-width: 768px) {
+    .brotherhood-card {
+        padding: 3rem 1.5rem;
+    }
+    .brotherhood-name {
+        font-size: 1.8rem;
+    }
+    .brotherhood-logo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 360px) {
+    .brotherhood-card {
+        padding: 2rem 1rem;
+    }
+    .brotherhood-name {
+        font-size: 1.5rem;
+    }
+    .brotherhood-logo {
+        width: 100px;
+        height: 100px;
+    }
+    .brotherhood-socials a {
+        width: 45px;
+        height: 45px;
+    }
+}
