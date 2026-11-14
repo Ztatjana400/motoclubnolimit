@@ -58,6 +58,196 @@ section{padding:6rem 5%;position:relative}
 .member-card .name[data-lang].active{margin-bottom:1rem}
 .member-card .member-role[data-lang].active{margin-top:0.5rem}
 
+
+/* =================================
+   IN MEMORIAM
+================================= */
+
+.memorial-section {
+    position: relative;
+    padding: 110px 20px;
+    background: #17191a;
+    color: #fff;
+    overflow: hidden;
+}
+
+.memorial-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* SECTION HEADING */
+
+.memorial-section .section-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.memorial-section .section-header h2 {
+    font-size: 48px;
+    letter-spacing: 5px;
+    color: #d2bd91;
+    margin: 18px 0 5px;
+}
+
+.memorial-section .section-header p {
+    color: #eee;
+    font-size: 22px;
+    font-style: italic;
+}
+
+/* CONTENT LAYOUT */
+
+.memorial-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    max-width: 950px;
+    margin: auto;
+}
+
+/* MEMBER PHOTO */
+
+.memorial-photo {
+    position: relative;
+}
+
+.memorial-photo img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border: 1px solid #806d4d;
+}
+
+/* MEMBER DETAILS */
+
+.memorial-details {
+    text-align: left;
+}
+
+.memorial-details h3 {
+    font-size: 42px;
+    margin: 15px 0 5px;
+    color: #e0d0ac;
+}
+
+.memorial-years {
+    color: #aaa;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+.memorial-divider {
+    width: 65px;
+    height: 2px;
+    background: #b69a68;
+    margin: 28px 0;
+}
+
+/* MEMORIAL MESSAGE */
+
+.memorial-details p {
+    color: #d0d0d0;
+    line-height: 1.9;
+    font-size: 19px;
+}
+
+/* FINAL TRIBUTE */
+
+.memorial-signature {
+    margin-top: 35px;
+    color: #d2bd91;
+    font-size: 24px;
+    font-style: italic;
+}
+
+/* FOOTER */
+
+.memorial-footer {
+    text-align: center;
+    margin-top: 65px;
+    padding-top: 25px;
+    border-top: 1px solid #38332b;
+    color: #968260;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+/* ENTRANCE ANIMATION */
+
+#in-memoriam .memorial-content {
+    animation: memorialFade 1.2s ease both;
+}
+
+@keyframes memorialFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .memorial-section {
+        padding: 75px 22px;
+    }
+
+    .memorial-section .section-header h2 {
+        font-size: 36px;
+    }
+
+    .memorial-section .section-header p {
+        font-size: 18px;
+    }
+
+    .memorial-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .memorial-photo {
+        max-width: 420px;
+        margin: auto;
+        width: 100%;
+    }
+
+    .memorial-details {
+        text-align: center;
+    }
+
+    .memorial-details h3 {
+        font-size: 32px;
+    }
+
+    .memorial-details p {
+        font-size: 17px;
+    }
+
+    .memorial-divider {
+        margin: 25px auto;
+    }
+
+    .memorial-signature {
+        font-size: 20px;
+    }
+
+    .memorial-footer {
+        margin-top: 45px;
+        font-size: 11px;
+    }
+}
+
+
 /* Gallery Section */
 .gallery-categories{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap;animation:fadeInUp 0.8s ease 0.2s both}
 .gallery-categories button{padding:0.8rem 2rem;background:rgba(24,20,20,0.05);border:0.5px solid rgba(139,0,0,0.3);color:var(--bone);font-family:'Oswald',sans-serif;font-size:0.9rem;cursor:pointer;transition:all 0.3s ease;border-radius:50px;backdrop-filter:blur(10px);text-transform:uppercase;letter-spacing:1px;position:relative;z-index:10;min-width:140px}
@@ -302,6 +492,7 @@ section{padding:3rem 3%}
 .humanitarian-card{padding:2rem 1rem}
 .humanitarian-stat .number{font-size:2rem}
 }
+
 
 /* ============================================
    SITE-WIDE DOWNLOAD / COPY / DRAG PROTECTION
@@ -548,5 +739,19 @@ input, textarea {
     .brotherhood-socials a {
         width: 45px;
         height: 45px;
+    }
+}
+
+@media (max-width: 700px) {
+    .memorial-section .section-header h2 {
+        font-size: 36px;
+    }
+
+    .memorial-details h3 {
+        font-size: 32px;
+    }
+
+    .memorial-details p {
+        font-size: 17px;
     }
 }
